@@ -40,6 +40,7 @@ namespace SecretGarden.OrderSystem.Misc{
 		public string sqlFormatDate{
 			get{return $"{year}-{month}-{day}";}
 		}
+		public static implicit operator Datetime(DateTime d) => new Datetime(d.Year, d.Month, d.Day, d.Hour, d.Minute, d.Second);
 		public static Datetime operator +(Datetime target, int[] step){
 			int new_sec = target.sec + step[5];
 			int new_min = target.min + step[4];
