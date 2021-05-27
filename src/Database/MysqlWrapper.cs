@@ -11,13 +11,13 @@ namespace SecretGarden.OrderSystem.Database{
 		private static MysqlWrapper instance = null;
 		private MySqlConnection sql_connection = null;
 		private MysqlWrapper(){}
-		private string connection_cs{
+		private string connectionCs{
 		// public string connection_cs{
 			get{
 				return $"server={this.hostname};userid={this.username};password={this.password};database={this.dbname}";
 			}
 		}
-		public List<string> table_names{
+		public List<string> tableNames{
 			get{
 				MySqlDataReader sqlreuslt = this.execute_with_result("show tables;");
 				List<string> tables = new List<string>();
