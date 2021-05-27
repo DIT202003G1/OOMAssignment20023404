@@ -37,6 +37,9 @@ namespace SecretGarden.OrderSystem.Misc{
 		public string sqlFormat{
 			get{return $"{year}-{month}-{day} {hr}:{min}:{sec}";}
 		}
+		public string sqlFormatDate{
+			get{return $"{year}-{month}-{day}";}
+		}
 		public static Datetime operator +(Datetime target, int[] step){
 			int new_sec = target.sec + step[5];
 			int new_min = target.min + step[4];
