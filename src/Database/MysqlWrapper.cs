@@ -12,7 +12,6 @@ namespace SecretGarden.OrderSystem.Database{
 		private MySqlConnection sql_connection = null;
 		private MysqlWrapper(){}
 		private string connectionCs{
-		// public string connection_cs{
 			get{
 				return $"server={this.hostname};userid={this.username};password={this.password};database={this.dbname}";
 			}
@@ -45,7 +44,7 @@ namespace SecretGarden.OrderSystem.Database{
 			this.username = username;
 			this.password = password;
 			this.dbname = dbname;
-			this.sql_connection = new MySqlConnection(this.connection_cs);
+			this.sql_connection = new MySqlConnection(this.connectionCs);
 			this.sql_connection.Open();
 		}
 		public void execute_only(string sql_statement){
