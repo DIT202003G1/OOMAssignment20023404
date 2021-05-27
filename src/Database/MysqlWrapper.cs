@@ -11,6 +11,7 @@ namespace SecretGarden.OrderSystem.Database{
 		private static MysqlWrapper instance = null;
 		private MySqlConnection sql_connection = null;
 		private MysqlWrapper(){}
+		public enum prepare_datatypes{STRING, NUMBER, DATE, DATETIME} 
 		private string connectionCs{
 			get{
 				return $"server={this.hostname};userid={this.username};password={this.password};database={this.dbname}";
