@@ -6,11 +6,11 @@ using MySql.Data.MySqlClient;
 // THIS CLASS IS A SINGLETON
 
 namespace SecretGarden.OrderSystem.Database{
-	class MysqlWrapper{
+	class Database{
 		private string username, password, dbname, hostname;
-		private static MysqlWrapper instance = null;
+		private static Database instance = null;
 		private MySqlConnection sql_connection = null;
-		private MysqlWrapper(){}
+		private Database(){}
 		public enum prepare_datatypes{STRING, NUMBER, DATE, DATETIME} 
 		private string connectionCs{
 			get{
@@ -34,10 +34,10 @@ namespace SecretGarden.OrderSystem.Database{
 			this.password = null;
 			this.dbname = null;
 		}
-		public static MysqlWrapper Instance{
+		public static Database Instance{
 			get{
-				if (MysqlWrapper.instance == null) MysqlWrapper.instance = new MysqlWrapper();
-				return MysqlWrapper.instance;
+				if (Database.instance == null) Database.instance = new Database();
+				return Database.instance;
 			}
 		}
 		public void connect(string hostname, string username, string password, string dbname){
