@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
+using SecretGarden.OrderSystem.Database.Tables.AdminAccount;
+
 // THIS CLASS IS A SINGLETON
 
 namespace SecretGarden.OrderSystem.Database{
-	class Database{
+	class DBWrapper{
 		private string username, password, dbname, hostname;
-		private static Database instance = null;
+		private static DBWrapper instance = null;
 		private MySqlConnection sql_connection = null;
-		private Database(){}
+		private Dictionary<string,DBTable> tables = new Dictionary<string,DBTable>();
+		private DBWrapper(){
+			tables.Add("admin_account",new AdminAccountTable());
+		}
 		public enum prepare_datatypes{STRING, NUMBER, DATE, DATETIME} 
 		private string connectionCs{
 			get{
@@ -28,16 +33,17 @@ namespace SecretGarden.OrderSystem.Database{
 				return tables;
 			}
 		}
+		public DBTable this[string name]{get=>this.tables["admin_account"];}
 		private void cleanup(){
 			this.hostname = null;
 			this.username = null;
 			this.password = null;
 			this.dbname = null;
 		}
-		public static Database Instance{
+		public static DBWrapper Instance{
 			get{
-				if (Database.instance == null) Database.instance = new Database();
-				return Database.instance;
+				if (DBWrapper.instance == null) DBWrapper.instance = new DBWrapper();
+				return DBWrapper.instance;
 			}
 		}
 		public void connect(string hostname, string username, string password, string dbname){
