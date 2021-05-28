@@ -46,12 +46,11 @@ namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{
 		}
 		public void update(AdminAccountRecord value){
 			if (exists(value.primaryKey)){
-				update_field("admin_id",value.primaryKey,DBWrapper.prepare_datatypes.NUMBER,$"admin_id={value.primaryKey}");
-				update_field("first_name",value.firstName,DBWrapper.prepare_datatypes.STRING,$"admin_id={value.primaryKey}");
-				update_field("last_name",value.lastName,DBWrapper.prepare_datatypes.STRING,$"admin_id={value.primaryKey}");
-				update_field("password_salt",value.passwordSalt,DBWrapper.prepare_datatypes.STRING,$"admin_id={value.primaryKey}");
-				update_field("password_hash",value.passwordSalt,DBWrapper.prepare_datatypes.STRING,$"admin_id={value.primaryKey}");
-				update_field("establish_date",value.establishDate.sqlFormatDate,DBWrapper.prepare_datatypes.STRING,$"admin_id={value.primaryKey}");
+				retrave(value.primaryKey).firstName = value.firstName;
+				retrave(value.primaryKey).lastName = value.lastName;
+				retrave(value.primaryKey).passwordSalt = value.passwordSalt;
+				retrave(value.primaryKey).passwordHash = value.passwordHash;
+				retrave(value.primaryKey).establishDate = value.establishDate;
 			}
 			else{
 				new_record(value);
