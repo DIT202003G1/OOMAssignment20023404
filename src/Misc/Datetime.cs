@@ -1,10 +1,8 @@
 using System;
-using System.Linq;
 
 namespace SecretGarden.OrderSystem.Misc{
 	class Datetime{
 		private int year, month, day, hr, min, sec;
-		// private static int[] month_ref = {31,28,31};
 		public static bool validate_month_day_count(int year, int month, int day){
 			int month_day_count = get_day_count(year,month);
 			if (day >= 1 && day <= month_day_count)
@@ -78,8 +76,6 @@ namespace SecretGarden.OrderSystem.Misc{
 				new_year ++;
 				new_month -= 12;
 			}
-
-			// Console.Out.WriteLine($"{new_year},{new_month},{new_day},{new_hr},{new_min},{new_sec},");
 
 			return new Datetime(new_year, new_month, new_day, new_hr, new_min, new_sec);
 		}
