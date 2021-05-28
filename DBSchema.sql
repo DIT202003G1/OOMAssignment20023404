@@ -51,7 +51,7 @@ CREATE TABLE item(
 CREATE TABLE admin_account(
 	admin_id int(8) NOT NULL,
 	first_name varchar(64) NOT NULL,
-	last_name int(64) NOT NULL,
+	last_name varchar(64) NOT NULL,
 	password_salt varchar(64) NOT NULL,
 	password_hash varchar(5) NOT NULL,
 	establish_date date NOT NULL,
