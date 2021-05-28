@@ -1,7 +1,6 @@
 using SecretGarden.OrderSystem.Misc;
 
 namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{
-	// class AdminAccountTable : TableRecord
 	class AdminAccountRecord : Record, IRecord{
 		private int rd_admin_id;
 		private string rd_first_name, rd_last_name, rd_password_salt, rd_password_hash;
