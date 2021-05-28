@@ -1,7 +1,3 @@
-using System;
-using MySql.Data.MySqlClient;
-
-using SecretGarden.OrderSystem.Database;
 using SecretGarden.OrderSystem.Misc;
 
 namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{

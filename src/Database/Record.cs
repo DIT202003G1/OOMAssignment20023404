@@ -1,5 +1,3 @@
-using System;
-
 namespace SecretGarden.OrderSystem.Database{
 	class Record{
 		public DBTable table_wrapper;

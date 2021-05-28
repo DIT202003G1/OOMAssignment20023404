@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 
 using SecretGarden.OrderSystem.Database.Tables.AdminAccount;
