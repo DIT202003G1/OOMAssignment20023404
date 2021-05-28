@@ -12,10 +12,11 @@ namespace SecretGarden.OrderSystem.Database{
 		private string username, password, dbname, hostname;
 		private static DBWrapper instance = null;
 		private MySqlConnection sql_connection = null;
-		private Dictionary<string,DBTable> tables = new Dictionary<string,DBTable>();
+		private AdminAccountTable admin_account_table = new AdminAccountTable();
 		private DBWrapper(){
-			tables.Add("admin_account",new AdminAccountTable());
+
 		}
+		public AdminAccountTable adminAccountTable{get=>this.admin_account_table;}
 		public enum prepare_datatypes{STRING, NUMBER, DATE, DATETIME} 
 		private string connectionCs{
 			get{
@@ -33,7 +34,6 @@ namespace SecretGarden.OrderSystem.Database{
 				return tables;
 			}
 		}
-		public DBTable this[string name]{get=>this.tables["admin_account"];}
 		private void cleanup(){
 			this.hostname = null;
 			this.username = null;
