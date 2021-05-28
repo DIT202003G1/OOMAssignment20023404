@@ -13,13 +13,8 @@ CREATE TABLE customer(
 	address varchar(128) NOT NULL,
 	telephone varchar(11) NOT NULL,
 	establish_date date NOT NULL,
-	PRIMARY KEY (customer_id)
-);
-
-CREATE TABLE premium_customer(
-	customer_id int(8) NOT NULL,
-	premium_register_date varchar(64) NOT NULL,
-	premium_end_date varchar(64) NOT NULL,
+	premium_register_date date NOT NULL,
+	premium_end_date date NOT NULL,
 	PRIMARY KEY (customer_id)
 );
 
