@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 
 using SecretGarden.OrderSystem.Database.Tables.AdminAccount;
 using SecretGarden.OrderSystem.Database.Tables.Customer;
+using SecretGarden.OrderSystem.Database.Tables.CustomerOrder;
 
 // THIS CLASS IS A SINGLETON
 
@@ -13,6 +14,7 @@ namespace SecretGarden.OrderSystem.Database{
 		private MySqlConnection sql_connection = null;
 		public AdminAccountTable admin_account_table = new AdminAccountTable();
 		public CustomerTable customer_table = new CustomerTable();
+		public CustomerOrderTable customer_order_table = new CustomerOrderTable();
 		private DBWrapper(){
 
 		}
