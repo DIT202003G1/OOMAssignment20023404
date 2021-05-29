@@ -10,7 +10,7 @@ namespace SecretGarden.OrderSystem.Misc{
 			string salt = "";
 			for(int i = 0; i < 5; i++){
 				int index = r.Next(0,salt_chars.Length);
-				salt += salt_chars.Substring(index, index);
+				salt += salt_chars.Substring(index, 1);
 			}
 			return salt;
 		}
