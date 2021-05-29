@@ -26,7 +26,7 @@ namespace SecretGarden.OrderSystem.Misc{
 		}
 
 		//Reference Source: https://docs.microsoft.com/en-us/troubleshoot/dotnet/csharp/compute-hash-values
-		static string byte_to_string(byte[] arrInput){
+		private static string byte_to_string(byte[] arrInput){
 			int i;
 			StringBuilder sOutput = new StringBuilder(arrInput.Length);
 			for (i=0;i < arrInput.Length; i++)
