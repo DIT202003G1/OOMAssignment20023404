@@ -9,7 +9,7 @@ namespace SecretGarden.OrderSystem.AppEntities{
 	class Admin{
 		private int id;
 		private Admin(int id){this.id = id;}
-		public static Admin Login(int id, string password){
+		public static Admin login(int id, string password){
 			if(! DBWrapper.Instance.admin_account_table.exists(new int[]{id})) throw new AdminAccountException(AdminAccountException.exception_type.ADMIN_NOT_FOUND);
 			string salt = DBWrapper.Instance.admin_account_table.retrave(new int[]{id}).passwordSalt;
 			string hash = DBWrapper.Instance.admin_account_table.retrave(new int[]{id}).passwordHash;
