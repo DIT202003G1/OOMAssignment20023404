@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 using SecretGarden.OrderSystem.Database.Tables.AdminAccount;
+using SecretGarden.OrderSystem.Database.Tables.Customer;
 
 // THIS CLASS IS A SINGLETON
 
@@ -10,11 +11,11 @@ namespace SecretGarden.OrderSystem.Database{
 		private string username, password, dbname, hostname;
 		private static DBWrapper instance = null;
 		private MySqlConnection sql_connection = null;
-		private AdminAccountTable admin_account_table = new AdminAccountTable();
+		public AdminAccountTable admin_account_table = new AdminAccountTable();
+		public CustomerTable customer_table = new CustomerTable();
 		private DBWrapper(){
 
 		}
-		public AdminAccountTable adminAccountTable{get=>this.admin_account_table;}
 		public enum prepare_datatypes{STRING, NUMBER, DATE, DATETIME} 
 		private string connectionCs{
 			get{
