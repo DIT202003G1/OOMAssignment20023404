@@ -26,7 +26,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{
 				return records;
 			}
 		}
-		public AdminAccountRecord retrave(int[] pk_id){
+		public AdminAccountRecord retrieve(int[] pk_id){
 			using (MySqlDataReader result = DBWrapper.Instance.execute_with_result($"SELECT * FROM {this.table_name} WHERE admin_id = {pk_id[0]}")){
 				if (result.Read()){
 					return new AdminAccountRecord(
@@ -45,11 +45,11 @@ namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{
 		}
 		public void update(AdminAccountRecord value){
 			if (exists(value.primaryKey)){
-				retrave(value.primaryKey).firstName = value.firstName;
-				retrave(value.primaryKey).lastName = value.lastName;
-				retrave(value.primaryKey).passwordSalt = value.passwordSalt;
-				retrave(value.primaryKey).passwordHash = value.passwordHash;
-				retrave(value.primaryKey).establishDate = value.establishDate;
+				retrieve(value.primaryKey).firstName = value.firstName;
+				retrieve(value.primaryKey).lastName = value.lastName;
+				retrieve(value.primaryKey).passwordSalt = value.passwordSalt;
+				retrieve(value.primaryKey).passwordHash = value.passwordHash;
+				retrieve(value.primaryKey).establishDate = value.establishDate;
 			}
 			else{
 				new_record(value);

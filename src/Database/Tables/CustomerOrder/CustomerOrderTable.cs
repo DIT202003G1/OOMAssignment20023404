@@ -30,7 +30,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 		}
 
 		public bool exists(int[] pk_id) => check_exist_by_pk_name("order_id",pk_id[0]);
-		public CustomerOrderRecord retrave(int[] pk_id){
+		public CustomerOrderRecord retrieve(int[] pk_id){
 			using (MySqlDataReader result = DBWrapper.Instance.execute_with_result($"SELECT * FROM {this.table_name} WHERE order_id = {pk_id[0]}")){
 				if (result.Read()){
 					return new CustomerOrderRecord(
@@ -50,11 +50,11 @@ namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 		}
 		public void update(CustomerOrderRecord value){
 			if (exists(value.primaryKey)){
-				retrave(value.primaryKey).customerID = value.customerID;
-				retrave(value.primaryKey).orderDatetime = value.orderDatetime;
-				retrave(value.primaryKey).prepareDatetime = value.prepareDatetime;
-				retrave(value.primaryKey).isDelivery = value.isDelivery;
-				retrave(value.primaryKey).adminId = value.adminId;
+				retrieve(value.primaryKey).customerID = value.customerID;
+				retrieve(value.primaryKey).orderDatetime = value.orderDatetime;
+				retrieve(value.primaryKey).prepareDatetime = value.prepareDatetime;
+				retrieve(value.primaryKey).isDelivery = value.isDelivery;
+				retrieve(value.primaryKey).adminId = value.adminId;
 			}
 			else{
 				new_record(value);

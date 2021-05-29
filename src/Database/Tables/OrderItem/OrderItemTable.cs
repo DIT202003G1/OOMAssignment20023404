@@ -27,7 +27,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.OrderItem{
 				return result.Read();
 			}
 		}
-		public OrderItemRecord retrave(int[] pk_id){
+		public OrderItemRecord retrieve(int[] pk_id){
 			using (MySqlDataReader result = DBWrapper.Instance.execute_with_result($"SELECT * FROM {this.table_name} WHERE item_id = {pk_id[0]}")){
 				if (result.Read()){
 					return new OrderItemRecord(
@@ -46,7 +46,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.OrderItem{
 		}
 		public void update(OrderItemRecord value){
 			if (exists(value.primaryKey)){
-				retrave(value.primaryKey).Quantity = value.Quantity;
+				retrieve(value.primaryKey).Quantity = value.Quantity;
 			}
 			else{
 				new_record(value);

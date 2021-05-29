@@ -23,7 +23,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.Item{
 				return records;
 			}
 		}
-		public ItemRecord retrave(int[] pk_id){
+		public ItemRecord retrieve(int[] pk_id){
 			using (MySqlDataReader result = DBWrapper.Instance.execute_with_result($"SELECT * FROM {this.table_name} WHERE item_id = {pk_id[0]}")){
 				if (result.Read()){
 					return new ItemRecord(
@@ -39,8 +39,8 @@ namespace SecretGarden.OrderSystem.Database.Tables.Item{
 		}
 		public void update(ItemRecord value){
 			if (exists(value.primaryKey)){
-				retrave(value.primaryKey).itemName = value.itemName;
-				retrave(value.primaryKey).Price = value.Price;
+				retrieve(value.primaryKey).itemName = value.itemName;
+				retrieve(value.primaryKey).Price = value.Price;
 			}
 			else{
 				new_record(value);
