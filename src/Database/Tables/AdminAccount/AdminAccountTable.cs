@@ -14,7 +14,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{
 					records.Add(new AdminAccountRecord(
 						this,
 						index,
-						result.GetInt16("admin_id"),
+						result.GetInt32("admin_id"),
 						result.GetString("first_name"),
 						result.GetString("last_name"),
 						result.GetString("password_salt"),

@@ -15,7 +15,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.Customer{
 					records.Add(new CustomerRecord(
 						this,
 						index,
-						result.GetInt16("customer_id"),
+						result.GetInt32("customer_id"),
 						result.GetString("first_name"),
 						result.GetString("last_name"),
 						result.GetString("address"),
