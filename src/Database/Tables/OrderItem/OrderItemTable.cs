@@ -1,6 +1,5 @@
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
-using System;
 
 namespace SecretGarden.OrderSystem.Database.Tables.OrderItem{
 	class OrderItemTable : DBTable, IDBTable<OrderItemRecord>{
@@ -43,7 +42,6 @@ namespace SecretGarden.OrderSystem.Database.Tables.OrderItem{
 			}
 		}
 		public void new_record(OrderItemRecord record){
-			Console.WriteLine($"INSERT INTO {this.table_name} VALUES {record.sqlTuple}");
 			DBWrapper.Instance.execute_only($"INSERT INTO {this.table_name} VALUES {record.sqlTuple}");
 		}
 		public void update(OrderItemRecord value){

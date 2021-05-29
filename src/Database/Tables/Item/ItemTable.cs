@@ -47,7 +47,6 @@ namespace SecretGarden.OrderSystem.Database.Tables.Item{
 			}
 		}
 		public void new_record(ItemRecord record){
-			Console.WriteLine($"INSERT INTO {this.table_name} VALUES {record.sqlTuple}");
 			DBWrapper.Instance.execute_only($"INSERT INTO {this.table_name} VALUES {record.sqlTuple}");
 		}
 	}
