@@ -67,7 +67,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 				this.rd_completed = value;
 			}
 		}
-		public string sqlTulpe{
+		public string sqlTuple{
 			get{
 				int completed = this.rd_completed?1:0;
 				int is_delivery = this.rd_completed?1:0;

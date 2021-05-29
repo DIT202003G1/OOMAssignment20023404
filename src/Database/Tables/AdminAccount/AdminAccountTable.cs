@@ -57,7 +57,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{
 		}
 		public bool exists(int pk_id) => check_exist_by_pk_name("admin_id",pk_id);
 		public void new_record(AdminAccountRecord record){
-			DBWrapper.Instance.execute_only($"INSERT INTO {this.table_name} VALUES {record.sqlTulpe}");
+			DBWrapper.Instance.execute_only($"INSERT INTO {this.table_name} VALUES {record.sqlTuple}");
 		}
 	}
 }

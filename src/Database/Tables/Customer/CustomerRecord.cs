@@ -78,7 +78,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.Customer{
 				this.rd_premium_end_date = value;
 			}
 		}
-		public string sqlTulpe{
+		public string sqlTuple{
 			get{
 				string register_date = (this.rd_premium_register_date == null) ? "null" : "'" + this.rd_premium_register_date.sqlFormatDate + "'";
 				string end_date = (this.rd_premium_end_date == null) ? "null" : "'" + this.rd_premium_end_date.sqlFormatDate + "'";

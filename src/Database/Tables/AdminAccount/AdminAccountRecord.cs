@@ -58,7 +58,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{
 				this.rd_establish_date = value;
 			}
 		}
-		public string sqlTulpe{
+		public string sqlTuple{
 			get{return $"({this.rd_admin_id}, '{this.rd_first_name}', '{this.rd_last_name}', '{this.rd_password_salt}', '{this.rd_password_hash}', '{this.rd_establish_date.sqlFormatDate}')";}
 		}
 		public void remove_record(){

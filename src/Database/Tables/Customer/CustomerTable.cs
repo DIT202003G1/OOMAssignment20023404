@@ -68,8 +68,8 @@ namespace SecretGarden.OrderSystem.Database.Tables.Customer{
 		}
 
 		public void new_record(CustomerRecord record){
-			Console.WriteLine($"INSERT INTO {this.table_name} VALUES {record.sqlTulpe}");
-			DBWrapper.Instance.execute_only($"INSERT INTO {this.table_name} VALUES {record.sqlTulpe}");
+			Console.WriteLine($"INSERT INTO {this.table_name} VALUES {record.sqlTuple}");
+			DBWrapper.Instance.execute_only($"INSERT INTO {this.table_name} VALUES {record.sqlTuple}");
 		}
 	}
 }
