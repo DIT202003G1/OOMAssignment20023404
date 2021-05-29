@@ -24,7 +24,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 			this.rd_completed = completed;
 			this.rd_admin_id = admin_id;
 		}
-		public int primaryKey{get=>rd_customer_id;}
+		public int[] primaryKey{get=>new int[] {rd_customer_id};}
 		public int customerID{
 			get=>rd_customer_id;
 			set{

@@ -30,10 +30,10 @@ namespace SecretGarden.OrderSystem.Database.Tables.Customer{
 			}
 		}
 
-		public bool exists(int pk_id) => check_exist_by_pk_name("customer_id",pk_id);
+		public bool exists(int[] pk_id) => check_exist_by_pk_name("customer_id",pk_id[0]);
 
-		public CustomerRecord retrave(int pk_id){
-			using (MySqlDataReader result = DBWrapper.Instance.execute_with_result($"SELECT * FROM {this.table_name} WHERE customer_id = {pk_id}")){
+		public CustomerRecord retrave(int[] pk_id){
+			using (MySqlDataReader result = DBWrapper.Instance.execute_with_result($"SELECT * FROM {this.table_name} WHERE customer_id = {pk_id[0]}")){
 				if (result.Read()){
 					return new CustomerRecord(
 						this,

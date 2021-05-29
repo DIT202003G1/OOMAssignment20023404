@@ -22,39 +22,39 @@ namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{
 			this.rd_password_hash = password_hash;
 			this.rd_establish_date = establish_date;
 		}
-		public int primaryKey{get=>rd_admin_id;}
+		public int[] primaryKey{get=>new int[] {rd_admin_id,};}
 		public string firstName{
 			get=>rd_first_name;
 			set{
-				table_wrapper.update_field("first_name",value,DBWrapper.prepare_datatypes.STRING,$"admin_id={primaryKey}");
+				table_wrapper.update_field("first_name",value,DBWrapper.prepare_datatypes.STRING,$"admin_id={primaryKey[0]}");
 				this.rd_first_name = value;
 			}
 		}
 		public string lastName{
 			get=>rd_last_name;
 			set{
-				table_wrapper.update_field("last_name",value,DBWrapper.prepare_datatypes.STRING,$"admin_id={primaryKey}");
+				table_wrapper.update_field("last_name",value,DBWrapper.prepare_datatypes.STRING,$"admin_id={primaryKey[0]}");
 				this.rd_last_name = value;
 			}
 		}
 		public string passwordSalt{
 			get=>rd_password_salt;
 			set{
-				table_wrapper.update_field("password_salt",value,DBWrapper.prepare_datatypes.STRING,$"admin_id={primaryKey}");
+				table_wrapper.update_field("password_salt",value,DBWrapper.prepare_datatypes.STRING,$"admin_id={primaryKey[0]}");
 				this.rd_password_salt = value;
 			}
 		}
 		public string passwordHash{
 			get=>rd_password_hash;
 			set{
-				table_wrapper.update_field("password_hash",value,DBWrapper.prepare_datatypes.STRING,$"admin_id={primaryKey}");
+				table_wrapper.update_field("password_hash",value,DBWrapper.prepare_datatypes.STRING,$"admin_id={primaryKey[0]}");
 				this.rd_password_hash = value;
 			}
 		}
 		public Datetime establishDate{
 			get=>rd_establish_date;
 			set{
-				table_wrapper.update_field("establish_date",value.sqlFormatDate,DBWrapper.prepare_datatypes.STRING,$"admin_id={primaryKey}");
+				table_wrapper.update_field("establish_date",value.sqlFormatDate,DBWrapper.prepare_datatypes.STRING,$"admin_id={primaryKey[0]}");
 				this.rd_establish_date = value;
 			}
 		}
@@ -63,7 +63,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{
 		}
 		public void remove_record(){
 			DBWrapper.Instance.execute_only(
-				$"DELETE FROM admin_account WHERE admin_id = {this.primaryKey}"
+				$"DELETE FROM admin_account WHERE admin_id = {this.primaryKey[0]}"
 			);
 		}
 	}

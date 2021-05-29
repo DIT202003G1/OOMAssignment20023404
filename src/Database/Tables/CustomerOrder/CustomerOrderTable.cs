@@ -30,9 +30,9 @@ namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 			}
 		}
 
-		public bool exists(int pk_id) => check_exist_by_pk_name("order_id",pk_id);
-		public CustomerOrderRecord retrave(int pk_id){
-			using (MySqlDataReader result = DBWrapper.Instance.execute_with_result($"SELECT * FROM {this.table_name} WHERE order_id = {pk_id}")){
+		public bool exists(int[] pk_id) => check_exist_by_pk_name("order_id",pk_id[0]);
+		public CustomerOrderRecord retrave(int[] pk_id){
+			using (MySqlDataReader result = DBWrapper.Instance.execute_with_result($"SELECT * FROM {this.table_name} WHERE order_id = {pk_id[0]}")){
 				if (result.Read()){
 					return new CustomerOrderRecord(
 						this,
