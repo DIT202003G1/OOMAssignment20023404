@@ -12,6 +12,10 @@ Language: C-Sharp Dotnet (C#.net)
 Source Code: /src/  
 Entry Point: /src/Program.cs > Program.main()  
 
+If you wish to view this project, any code editor should be fine (no need proper IDE also can).
+I personnely uses VSCode with simple C# plugin to code this project.
+I didn't liked the C# naming convention, but didn't had one myself, so you can see my naming convension is kinda messy xD.
+
 If you wish to build, please makesure your computer system is compatible with Dotnet 5.0 SDK  
 You can install Dotnet 5.0 SDK on the Official Website of Microsoft, [Here](https://dotnet.microsoft.com/)  
 Dotnet 5.0 SDK is compatible with Windows, Linux and Mac  
