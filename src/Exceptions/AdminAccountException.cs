@@ -6,10 +6,12 @@ namespace SecretGarden.OrderSystem.Exceptions{
 	class AdminAccountException : Exception{
 		public enum exception_type{
 			ADMIN_NOT_FOUND,
+			ADMIN_FOUND,
 			AUTHENTICATION_ERROR
 		};
 		static public Dictionary<exception_type,string> exception_type_message = new Dictionary<exception_type, string>{
 			{exception_type.ADMIN_NOT_FOUND,"The admin account does not exist in the database"},
+			{exception_type.ADMIN_FOUND,"The admin account already exist in the database"},
 			{exception_type.AUTHENTICATION_ERROR,"The login information is not authenticated (You might have used a wrong password)"},
 		};
 		public AdminAccountException(){}
