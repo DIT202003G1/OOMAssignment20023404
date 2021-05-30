@@ -30,7 +30,7 @@ CREATE TABLE customer_order(
 );
 
 CREATE TABLE order_item(
-	order_id int(8) NOT NULL AUTO_INCREMENT,
+	order_id int(8) NOT NULL,
 	item_id int(8) NOT NULL,
 	quantity int(3) NOT NULL DEFAULT 1,
 	PRIMARY KEY (order_id,item_id)
@@ -44,7 +44,7 @@ CREATE TABLE item(
 );
 
 CREATE TABLE admin_account(
-	admin_id int(8) NOT NULL,
+	admin_id int(8) NOT NULL AUTO_INCREMENT,
 	first_name varchar(64) NOT NULL,
 	last_name varchar(64) NOT NULL,
 	password_salt varchar(64) NOT NULL,
