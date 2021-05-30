@@ -37,6 +37,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 		}
 		public override void draw(){
 			Rectangle a = new Rectangle(absoluteX,absoluteY,height,width,backgroundColor);
+			a.draw();
 			Console.SetCursorPosition(absoluteX,absoluteY);
 			Console.BackgroundColor = backgroundColor;
 			Console.ForegroundColor = foregroundColor;
