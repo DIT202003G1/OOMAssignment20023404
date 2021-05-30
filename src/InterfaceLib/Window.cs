@@ -28,6 +28,9 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 			Console.ForegroundColor = ConsoleColor.White;
 			Console.Write(StringUtils.hide_by_max_width(title, width));
 		}
+		public void register_control(Label control){
+			labels.Add(control.Id,control);
+		}
 		public string Title{
 			get=>title;
 			set{
