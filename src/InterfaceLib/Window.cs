@@ -28,10 +28,8 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 			Console.BackgroundColor = ElementBase.to_dark(background_color);
 			Console.ForegroundColor = ConsoleColor.White;
 			Console.Write(StringUtils.hide_by_max_width(title, width));
-			foreach (string i in labels.Keys){
-				Label l = labels[i];
-				l.draw();
-			}
+			foreach (Label i in labels.Values) i.draw();
+			foreach (Textbox i in textboxes.Values) i.draw();
 		}
 		public void register_control(Label control){
 			labels.Add(control.Id,control);
