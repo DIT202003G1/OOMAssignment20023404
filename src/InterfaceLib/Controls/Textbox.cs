@@ -105,5 +105,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 				draw();
 			}
 		}
+
+		protected override void on_create(){}
 	}
 }

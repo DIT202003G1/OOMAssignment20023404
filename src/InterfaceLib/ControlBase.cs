@@ -22,10 +22,14 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 			this.width = width;
 			this.height = height;
 			this.window = window_to_bind;
+			on_create();
 		}
 		public string Id{get=>id;}
 		public int absoluteX{get=>window.X+x;}
 		public int absoluteY{get=>window.Y+y+1;}
 		public abstract override void draw();
+
+		//HANDLERS
+		protected abstract void on_create();
 	}
 }

@@ -43,5 +43,6 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			Console.ForegroundColor = foregroundColor;
 			Console.WriteLine(StringUtils.hide_by_max_width(text, width));
 		}
+		protected override void on_create(){}
 	}
 }
