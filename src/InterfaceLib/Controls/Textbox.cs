@@ -5,8 +5,9 @@ using SecretGarden.OrderSystem.Misc;
 
 namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 	class Textbox : ControlBase, IFocusables{
-		string text;
-		Boolean focused = false;
+		private string text;
+		private Boolean focused = false;
+
 		public Textbox(
 			Window window_to_bind, 
 			string id, 
