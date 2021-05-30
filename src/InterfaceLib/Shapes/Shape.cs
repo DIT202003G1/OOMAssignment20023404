@@ -2,9 +2,9 @@ using System;
 
 namespace SecretGarden.OrderSystem.InterfaceLib.Shapes{
 	abstract class Shape : IDrawables{
-		ConsoleColor background_color = ConsoleColor.White;
-		ConsoleColor foreground_color = ConsoleColor.Black;
-		int x, y, width, height;
+		protected ConsoleColor background_color = ConsoleColor.White;
+		protected ConsoleColor foreground_color = ConsoleColor.Black;
+		protected int x, y, width, height;
 		public Shape(){}
 		public abstract void draw();
 		public ConsoleColor backgroundColor{
