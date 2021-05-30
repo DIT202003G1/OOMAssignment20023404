@@ -7,7 +7,8 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 	class Textbox : ControlBase, IFocusables{
 		private string text;
 		private Boolean focused = false;
-
+		private string allowed_chars = StringUtils.printables;
+		private int length_restriction = -1;
 		public Textbox(
 			Window window_to_bind, 
 			string id, 
@@ -56,6 +57,20 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 				return text.Substring(text.Length - width, width);
 			}
 		}
+		public int maxLength{
+			get=>length_restriction;
+			set{
+				length_restriction = value;
+				if (text.Length > value){
+					text = text.Substring(0,value);
+					draw();
+				}
+			}
+		}
+		public string allowedChars{
+			get=>allowed_chars;
+			set{allowed_chars = value;}
+		}
 		public void draw_focuse(){
 			Rectangle a = new Rectangle(absoluteX,absoluteY,height,width,ElementBase.to_dark(backgroundColor));
 			a.draw();
@@ -74,8 +89,8 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 					Console.SetCursorPosition(absoluteX + displayText.Length, absoluteY);
 				}
 				char c = Console.ReadKey().KeyChar;
-				if(StringUtils.printables.Contains(c)){
-					text += c;
+				if(allowedChars.Contains(c)){
+					if (maxLength < 0 || text.Length < maxLength) text += c;
 				}
 				else{
 					switch ((int) c){
