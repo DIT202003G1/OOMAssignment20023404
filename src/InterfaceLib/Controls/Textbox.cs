@@ -41,7 +41,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 		}
 		public override void draw(){
 			if (focused){
-				draw_focuse();
+				draw_focus();
 				return;
 			}
 			Rectangle a = new Rectangle(absoluteX,absoluteY,height,width,backgroundColor);
@@ -71,7 +71,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			get=>allowed_chars;
 			set{allowed_chars = value;}
 		}
-		public void draw_focuse(){
+		public void draw_focus(){
 			Rectangle a = new Rectangle(absoluteX,absoluteY,height,width,ElementBase.to_dark(backgroundColor));
 			a.draw();
 			Console.SetCursorPosition(absoluteX,absoluteY);
@@ -79,7 +79,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			Console.ForegroundColor = foregroundColor;
 			Console.WriteLine(displayText);
 		}
-		public int focuse(){
+		public int focus(){
 			//1 = break
 			while (true){
 				if (displayText.Length == width){
