@@ -26,6 +26,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			window_to_bind.backgroundColor
 		){
 			this.text=text;
+			window_to_bind.register_control(this);
 		}
 		public string Text{
 			get=>text;
