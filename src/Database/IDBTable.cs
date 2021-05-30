@@ -5,6 +5,7 @@ namespace SecretGarden.OrderSystem.Database{
 		List<T> get_records();
 		bool exists(int[] pk_id);
 		void new_record(T record);
+		void append_record(T record);
 		T retrieve(int[] pk_id);
 		void update(T value);
 	}

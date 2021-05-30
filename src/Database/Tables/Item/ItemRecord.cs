@@ -37,6 +37,11 @@ namespace SecretGarden.OrderSystem.Database.Tables.Item{
 				$"DELETE FROM {table_wrapper.table_name} WHERE item_id = {this.primaryKey[0]}"
 			);
 		}
+		public string sqlTupleDefaultPk{
+			get{
+				return $"({this.rd_item_id}, '{this.rd_item_name}', {this.rd_price})";
+			}
+		}
 		public string sqlTuple{
 			get{
 				return $"({this.rd_item_id}, '{this.rd_item_name}', {this.rd_price})";

@@ -74,6 +74,13 @@ namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 				return $"({this.rd_order_id}, {this.rd_customer_id}, '{this.rd_order_datetime.sqlFormat}', '{this.rd_prepare_datetime.sqlFormat}', {completed}, {is_delivery}, {this.rd_admin_id})";
 			}
 		}
+		public string sqlTupleDefaultPk{
+			get{
+				int completed = this.rd_completed?1:0;
+				int is_delivery = this.rd_completed?1:0;
+				return $"(DEFAULT, {this.rd_customer_id}, '{this.rd_order_datetime.sqlFormat}', '{this.rd_prepare_datetime.sqlFormat}', {completed}, {is_delivery}, {this.rd_admin_id})";
+			}
+		}
 		public void remove_record(){
 			DBWrapper.Instance.execute_only(
 				$"DELETE FROM {table_wrapper.table_name} WHERE order_id = {this.primaryKey}"

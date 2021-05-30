@@ -65,7 +65,9 @@ namespace SecretGarden.OrderSystem.Database.Tables.Customer{
 				new_record(value);
 			}
 		}
-
+		public void append_record(CustomerRecord record){
+			DBWrapper.Instance.execute_only($"INSERT INTO {this.table_name} VALUES {record.sqlTupleDefaultPk}");
+		}
 		public void new_record(CustomerRecord record){
 			DBWrapper.Instance.execute_only($"INSERT INTO {this.table_name} VALUES {record.sqlTuple}");
 		}

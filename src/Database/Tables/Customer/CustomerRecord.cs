@@ -85,6 +85,13 @@ namespace SecretGarden.OrderSystem.Database.Tables.Customer{
 				return $"({this.rd_customer_id}, '{this.rd_first_name}', '{this.rd_last_name}', '{this.rd_address}', '{this.rd_telephone}', '{this.rd_establish_date.sqlFormatDate}', {register_date}, {end_date})";
 			}
 		}
+		public string sqlTupleDefaultPk{
+			get{
+				string register_date = (this.rd_premium_register_date == null) ? "null" : "'" + this.rd_premium_register_date.sqlFormatDate + "'";
+				string end_date = (this.rd_premium_end_date == null) ? "null" : "'" + this.rd_premium_end_date.sqlFormatDate + "'";
+				return $"(Default, '{this.rd_first_name}', '{this.rd_last_name}', '{this.rd_address}', '{this.rd_telephone}', '{this.rd_establish_date.sqlFormatDate}', {register_date}, {end_date})";
+			}
+		}
 		public void remove_record(){
 			DBWrapper.Instance.execute_only(
 				$"DELETE FROM {table_wrapper.table_name} WHERE customer_id = {this.primaryKey[0]}"

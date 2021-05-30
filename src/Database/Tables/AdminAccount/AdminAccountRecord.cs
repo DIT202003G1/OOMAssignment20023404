@@ -61,6 +61,9 @@ namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{
 		public string sqlTuple{
 			get{return $"({this.rd_admin_id}, '{this.rd_first_name}', '{this.rd_last_name}', '{this.rd_password_salt}', '{this.rd_password_hash}', '{this.rd_establish_date.sqlFormatDate}')";}
 		}
+		public string sqlTupleDefaultPk{
+			get{return $"(DEFAULT, '{this.rd_first_name}', '{this.rd_last_name}', '{this.rd_password_salt}', '{this.rd_password_hash}', '{this.rd_establish_date.sqlFormatDate}')";}
+		}
 		public void remove_record(){
 			DBWrapper.Instance.execute_only(
 				$"DELETE FROM admin_account WHERE admin_id = {this.primaryKey[0]}"

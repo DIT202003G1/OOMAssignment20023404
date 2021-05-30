@@ -7,7 +7,7 @@ USE secretgarden;
 -- DB STRUCTURE (DDL)
 
 CREATE TABLE customer(
-	customer_id int(8) NOT NULL,
+	customer_id int(8) NOT NULL AUTO_INCREMENT,
 	first_name varchar(64) NOT NULL,
 	last_name varchar(64) NOT NULL,
 	address varchar(128) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE customer(
 );
 
 CREATE TABLE customer_order(
-	order_id int(8) NOT NULL,
+	order_id int(8) NOT NULL AUTO_INCREMENT,
 	customer_id int(8) NOT NULL,
 	order_datetime datetime NOT NULL,
 	prepare_datetime datetime NOT NULL,
@@ -30,14 +30,14 @@ CREATE TABLE customer_order(
 );
 
 CREATE TABLE order_item(
-	order_id int(8) NOT NULL,
+	order_id int(8) NOT NULL AUTO_INCREMENT,
 	item_id int(8) NOT NULL,
 	quantity int(3) NOT NULL DEFAULT 1,
 	PRIMARY KEY (order_id,item_id)
 );
 
 CREATE TABLE item(
-	item_id int(8) NOT NULL,
+	item_id int(8) NOT NULL AUTO_INCREMENT,
 	item_name varchar(64) NOT NULL,
 	price decimal(6,2) NOT NULL,
 	PRIMARY KEY (item_id)
