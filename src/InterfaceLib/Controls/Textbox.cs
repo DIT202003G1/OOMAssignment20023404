@@ -80,7 +80,9 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			Console.WriteLine(displayText);
 		}
 		public int focus(){
-			//1 = break
+			// 1 = ENTER
+			// 2 = UP
+			// 3 = DOWN
 			while (true){
 				if (displayText.Length == width){
 					Console.SetCursorPosition(absoluteX + displayText.Length-1, absoluteY);
@@ -88,18 +90,22 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 				else{
 					Console.SetCursorPosition(absoluteX + displayText.Length, absoluteY);
 				}
-				char c = Console.ReadKey().KeyChar;
-				if(allowedChars.Contains(c)){
-					if (maxLength < 0 || text.Length < maxLength) text += c;
+				ConsoleKeyInfo c = Console.ReadKey();
+				if(allowedChars.Contains(c.KeyChar)){
+					if (maxLength < 0 || text.Length < maxLength) text += c.KeyChar;
 				}
 				else{
-					switch ((int) c){
-						case 127:
+					switch (c.Key){
+						case ConsoleKey.Backspace:
 							if (text.Length > 0)
 							text = text.Substring(0,Text.Length - 1);
 						break;
-						case 13:
+						case ConsoleKey.Enter:
 							return 1;
+						case ConsoleKey.UpArrow:
+							return 2;
+						case ConsoleKey.DownArrow:
+							return 3;
 					}
 				}
 				draw();
