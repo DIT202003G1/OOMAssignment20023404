@@ -16,7 +16,6 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Shapes{
 			this.background_color = background_color;
 		}
 		public override void draw(){
-			Console.Clear();
 			for (int pointer_y = Y; pointer_y < Y+height; pointer_y++){
 				Console.SetCursorPosition(X,pointer_y);
 				Console.BackgroundColor = backgroundColor;
