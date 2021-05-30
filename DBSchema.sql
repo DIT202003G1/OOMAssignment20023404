@@ -47,8 +47,8 @@ CREATE TABLE admin_account(
 	admin_id int(8) NOT NULL AUTO_INCREMENT,
 	first_name varchar(64) NOT NULL,
 	last_name varchar(64) NOT NULL,
-	password_salt varchar(64) NOT NULL,
-	password_hash varchar(5) NOT NULL,
+	password_salt varchar(5) NOT NULL,
+	password_hash varchar(64) NOT NULL,
 	establish_date date NOT NULL,
 	PRIMARY KEY (admin_id)
 );
