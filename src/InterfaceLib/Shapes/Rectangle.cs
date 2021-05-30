@@ -1,7 +1,7 @@
 using System;
 
 namespace SecretGarden.OrderSystem.InterfaceLib.Shapes{
-	class Rectangle : Shape{
+	class Rectangle : ElementBase{
 		public Rectangle(
 			int x,
 			int y,

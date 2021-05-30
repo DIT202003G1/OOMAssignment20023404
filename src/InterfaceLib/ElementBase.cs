@@ -1,11 +1,10 @@
 using System;
 
-namespace SecretGarden.OrderSystem.InterfaceLib.Shapes{
-	abstract class Shape : IDrawables{
+namespace SecretGarden.OrderSystem.InterfaceLib{
+	abstract class ElementBase : IDrawables{
 		protected ConsoleColor background_color = ConsoleColor.White;
 		protected ConsoleColor foreground_color = ConsoleColor.Black;
 		protected int x, y, width, height;
-		public Shape(){}
 		public abstract void draw();
 		public ConsoleColor backgroundColor{
 			get=>this.background_color;
@@ -49,5 +48,6 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Shapes{
 				draw();
 			}
 		}
+
 	}
 }
