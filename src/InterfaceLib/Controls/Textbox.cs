@@ -7,7 +7,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 	class Textbox : ControlBase, IFocusables{
 		private string text;
 		private Boolean focused = false;
-		private string allowed_chars = StringUtils.printables;
+		private string allowed_chars = StringUtils.Printables;
 		private int length_restriction = -1;
 		public Textbox(
 			Window window_to_bind, 
