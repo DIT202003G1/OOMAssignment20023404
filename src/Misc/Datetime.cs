@@ -79,5 +79,47 @@ namespace SecretGarden.OrderSystem.Misc{
 
 			return new Datetime(new_year, new_month, new_day, new_hr, new_min, new_sec);
 		}
+		public static bool operator >(Datetime original, Datetime target){
+			if (original.year > target.year) return true; 
+			if (original.year < target.year) return false;
+
+			if (original.month > target.month) return true; 
+			if (original.month < target.month) return false; 
+
+			if (original.day > target.day) return true; 
+			if (original.day < target.day) return false; 
+
+			if (original.hr > target.hr) return true; 
+			if (original.hr < target.hr) return false; 
+
+			if (original.min > target.min) return true; 
+			if (original.min < target.min) return false; 
+
+			if (original.sec > target.sec) return true; 
+			if (original.sec < target.sec) return false; 
+
+			return false;
+		}
+		public static bool operator <(Datetime original, Datetime target){
+			if (original.year < target.year) return true; 
+			if (original.year > target.year) return false;
+
+			if (original.month < target.month) return true; 
+			if (original.month > target.month) return false; 
+
+			if (original.day < target.day) return true; 
+			if (original.day > target.day) return false; 
+
+			if (original.hr < target.hr) return true; 
+			if (original.hr > target.hr) return false; 
+
+			if (original.min < target.min) return true; 
+			if (original.min > target.min) return false; 
+
+			if (original.sec < target.sec) return true; 
+			if (original.sec > target.sec) return false; 
+
+			return false;
+		}
 	}
 }
