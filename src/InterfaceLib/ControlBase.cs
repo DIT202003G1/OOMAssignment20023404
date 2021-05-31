@@ -3,7 +3,7 @@ using System;
 namespace SecretGarden.OrderSystem.InterfaceLib{
 	abstract class ControlBase : ElementBase{
 		private string id;
-		private Window window;
+		protected Window window;
 		public ControlBase(
 			Window window_to_bind, 
 			string id, 
