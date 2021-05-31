@@ -83,6 +83,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			// 1 = ENTER
 			// 2 = UP
 			// 3 = DOWN
+			focused = true;
 			while (true){
 				if (displayText.Length == width){
 					Console.SetCursorPosition(absoluteX + displayText.Length-1, absoluteY);
@@ -101,10 +102,13 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 							text = text.Substring(0,Text.Length - 1);
 						break;
 						case ConsoleKey.Enter:
+							focused = false;
 							return 1;
 						case ConsoleKey.UpArrow:
+							focused = false;
 							return 2;
 						case ConsoleKey.DownArrow:
+							focused = false;
 							return 3;
 					}
 				}
