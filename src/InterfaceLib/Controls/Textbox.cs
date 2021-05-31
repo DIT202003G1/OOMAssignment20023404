@@ -99,6 +99,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			// 3 = DOWN
 			focused = true;
 			while (true){
+				draw();
 				if (displayText.Length == width){
 					Console.SetCursorPosition(absoluteX + displayText.Length-1, absoluteY);
 				}
@@ -126,7 +127,6 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 							return 3;
 					}
 				}
-				draw();
 			}
 		}
 
