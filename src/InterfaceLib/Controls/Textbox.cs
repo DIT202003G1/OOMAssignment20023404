@@ -8,6 +8,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 		private string text;
 		private Boolean focused = false;
 		private string allowed_chars = StringUtils.Printables;
+		private char? password_char = null;
 		private int length_restriction = -1;
 		public Textbox(
 			Window window_to_bind, 
@@ -53,8 +54,14 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 		}
 		public string displayText{
 			get{
-				if (text.Length <= width) return text;
-				return text.Substring(text.Length - width, width);
+				if (password_char == null){
+					if (text.Length <= width) return text;
+					return text.Substring(text.Length - width, width);
+				}
+				else{
+					if (text.Length <= width) return new String((char) password_char, text.Length);
+					return new String((char) password_char, width);
+				}
 			}
 		}
 		public int maxLength{
@@ -70,6 +77,13 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 		public string allowedChars{
 			get=>allowed_chars;
 			set{allowed_chars = value;}
+		}
+		public char? passwordChar{
+			get=>password_char;
+			set{
+				password_char = value;
+				draw();
+			}
 		}
 		public void draw_focus(){
 			Rectangle a = new Rectangle(absoluteX,absoluteY,height,width,ElementBase.to_dark(backgroundColor));
