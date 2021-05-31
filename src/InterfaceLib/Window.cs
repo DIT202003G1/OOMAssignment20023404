@@ -10,6 +10,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 		private string title;
 		public Dictionary<string,Label> labels = new Dictionary<string, Label>();
 		public Dictionary<string,Textbox> textboxes = new Dictionary<string, Textbox>();
+		public Dictionary<string,MenuList> menu_lists = new Dictionary<string, MenuList>();
 		public Window(string title, int x, int y, int width, int height, ConsoleColor color){
 			this.background_color = ElementBase.to_light(color);
 			this.foreground_color = ConsoleColor.Black;
@@ -30,12 +31,16 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 			Console.Write(StringUtils.hide_by_max_width(title, width));
 			foreach (Label i in labels.Values) i.draw();
 			foreach (Textbox i in textboxes.Values) i.draw();
+			foreach (MenuList i in menu_lists.Values) i.draw();
 		}
 		public void register_control(Label control){
 			labels.Add(control.Id,control);
 		}
 		public void register_control(Textbox control){
 			textboxes.Add(control.Id,control);
+		}
+		public void register_control(MenuList control){
+			menu_lists.Add(control.Id,control);
 		}
 		public string Title{
 			get=>title;
