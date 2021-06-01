@@ -22,7 +22,7 @@ namespace SecretGarden.OrderSystem.AppEntities{
 		}
 		public static Customer retrieve(int id){
 			if (DBWrapper.Instance.customer_order_table.exists(new int[]{id}))
-				throw new AdminAccountException(AdminAccountException.exception_type.ADMIN_NOT_FOUND);
+				throw new CustomerException(CustomerException.exception_type.CUSTOMER_FOUND);
 			return new Customer(id);
 		}
 		public int Id{get=>id;}
