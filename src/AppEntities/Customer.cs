@@ -8,7 +8,7 @@ using SecretGarden.OrderSystem.Database.Tables.Customer;
 
 namespace SecretGarden.OrderSystem.AppEntities{
 	class Customer{
-		int id;
+		private int id;
 		private Customer(int id){this.id = id;}
 		public static List<Customer> get_all_customers(){
 			List<Customer> customers = new List<Customer>();
@@ -25,6 +25,7 @@ namespace SecretGarden.OrderSystem.AppEntities{
 				throw new AdminAccountException(AdminAccountException.exception_type.ADMIN_NOT_FOUND);
 			return new Customer(id);
 		}
+		public int Id{get=>id;}
 		public static int new_customer(string first_name, string last_name, string address, string telephone, int premium_multiplier = 0){
 			Datetime premium_register_date = null;
 			Datetime premium_end_date = null;
