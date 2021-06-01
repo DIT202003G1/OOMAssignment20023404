@@ -6,8 +6,9 @@ using SecretGarden.OrderSystem.InterfaceLib.Controls;
 using SecretGarden.OrderSystem.Misc;
 
 namespace SecretGarden.OrderSystem.InterfaceLib{
-	class Window : ElementBase{
+	abstract class Window : ElementBase,IFocusables{
 		private string title;
+		protected int focus_status = 0;
 		public Dictionary<string,Label> labels = new Dictionary<string, Label>();
 		public Dictionary<string,Textbox> textboxes = new Dictionary<string, Textbox>();
 		public Dictionary<string,MenuList> menu_lists = new Dictionary<string, MenuList>();
@@ -32,7 +33,10 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 			foreach (Label i in labels.Values) i.draw();
 			foreach (Textbox i in textboxes.Values) i.draw();
 			foreach (MenuList i in menu_lists.Values) i.draw();
+			draw_focus();
 		}
+		public abstract void draw_focus();
+		public abstract int focus();
 		public void register_control(Label control){
 			labels.Add(control.Id,control);
 		}
