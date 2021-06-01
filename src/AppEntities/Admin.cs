@@ -34,6 +34,12 @@ namespace SecretGarden.OrderSystem.AppEntities{
 			List<AdminAccountRecord> r = DBWrapper.Instance.admin_account_table.get_records();
 			return r[r.Count - 1].primaryKey[0];
 		}
+		public static Admin retrieve(int id){
+			if (DBWrapper.Instance.admin_account_table.exists(new int[]{id})){
+				throw new AdminAccountException(AdminAccountException.exception_type.ADMIN_NOT_FOUND);
+			}
+			else return new Admin(id);
+		} 
 		public string firstName{
 			get{
 				return DBWrapper.Instance.admin_account_table.retrieve(new int[]{id}).firstName;
