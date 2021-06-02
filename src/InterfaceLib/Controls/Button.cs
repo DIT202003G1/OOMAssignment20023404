@@ -37,6 +37,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			}
 		}
 		public override void draw(){
+			Console.SetCursorPosition(absoluteX,absoluteY);
 			if (focused){
 				draw_focus();
 				return;
