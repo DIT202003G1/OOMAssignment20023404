@@ -34,6 +34,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 			foreach (Label i in labels.Values) i.draw();
 			foreach (Textbox i in textboxes.Values) i.draw();
 			foreach (MenuList i in menu_lists.Values) i.draw();
+			foreach (Button i in buttons.Values) i.draw();
 			draw_focus();
 		}
 		public virtual void draw_focus(){}
