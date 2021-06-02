@@ -5,6 +5,7 @@ using SecretGarden.OrderSystem.Exceptions;
 using SecretGarden.OrderSystem.Misc;
 using SecretGarden.OrderSystem.Database;
 using SecretGarden.OrderSystem.Database.Tables.CustomerOrder;
+using SecretGarden.OrderSystem.Database.Tables.OrderItem;
 
 namespace SecretGarden.OrderSystem.AppEntities{
 	class Order{
@@ -46,6 +47,57 @@ namespace SecretGarden.OrderSystem.AppEntities{
 				Admin.retrieve(admin_id),
 				Customer.retrieve(customer_id)
 			);
+		}
+		public List<OrderItem> items{
+			get{
+				List<OrderItem> order_items = new List<OrderItem>();
+				List<OrderItemRecord> records = new List<OrderItemRecord>();
+				foreach (OrderItemRecord i in records){
+					if (i.primaryKey[0] == id){
+						order_items.Add(
+							OrderItem.retrieve(this, i.primaryKey[1])
+						);
+					}
+				}
+				return order_items;
+			}
+		}
+		public void add_item(int item_id, int quantity){
+			DBWrapper.Instance.execute_only($"INSERT INTO order_item VALUES ({id},{item_id},{quantity})");
+		}
+		public int orderID{
+			get=>id;
+		}
+		public bool isDelivery{
+			get=>DBWrapper.Instance.customer_order_table.retrieve(new int[]{id}).isDelivery;
+			set{
+				DBWrapper.Instance.customer_order_table.retrieve(new int[]{id}).isDelivery=value;
+			}
+		}
+		public bool Completed{
+			get=>DBWrapper.Instance.customer_order_table.retrieve(new int[]{id}).Completed;
+			set{
+				DBWrapper.Instance.customer_order_table.retrieve(new int[]{id}).Completed=value;
+			}
+		}
+		public Datetime orderDatetime{
+			get=>DBWrapper.Instance.customer_order_table.retrieve(new int[]{id}).orderDatetime;
+			set{
+				DBWrapper.Instance.customer_order_table.retrieve(new int[]{id}).orderDatetime=value;
+			}
+		}
+		public Datetime prepareDatetime{
+			get=>DBWrapper.Instance.customer_order_table.retrieve(new int[]{id}).prepareDatetime;
+			set{
+				DBWrapper.Instance.customer_order_table.retrieve(new int[]{id}).prepareDatetime=value;
+			}
+		}
+		public Customer Customer{
+			get=>Customer.retrieve(DBWrapper.Instance.customer_order_table.retrieve(new int[]{id}).customerID);
+			set{
+				DBWrapper.Instance.customer_order_table.retrieve(new int[]{id}).customerID=value.Id;
+				this.customer = value;
+			}
 		}
 	}
 }
