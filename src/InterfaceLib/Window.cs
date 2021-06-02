@@ -36,7 +36,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 			foreach (MenuList i in menu_lists.Values) i.draw();
 			draw_focus();
 		}
-		public abstract void draw_focus();
+		public virtual void draw_focus(){}
 		public abstract int focus();
 		public void register_control(Label control){
 			labels.Add(control.Id,control);
