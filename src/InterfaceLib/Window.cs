@@ -12,6 +12,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 		public Dictionary<string,Label> labels = new Dictionary<string, Label>();
 		public Dictionary<string,Textbox> textboxes = new Dictionary<string, Textbox>();
 		public Dictionary<string,MenuList> menu_lists = new Dictionary<string, MenuList>();
+		public Dictionary<string,Button> buttons = new Dictionary<string, Button>();
 		public Window(string title, int x, int y, int width, int height, ConsoleColor color){
 			this.background_color = ElementBase.to_light(color);
 			this.foreground_color = ConsoleColor.Black;
@@ -45,6 +46,9 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 		}
 		public void register_control(MenuList control){
 			menu_lists.Add(control.Id,control);
+		}
+		public void register_control(Button control){
+			buttons.Add(control.Id,control);
 		}
 		public string Title{
 			get=>title;
