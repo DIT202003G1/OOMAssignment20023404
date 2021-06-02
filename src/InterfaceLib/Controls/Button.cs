@@ -37,7 +37,6 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			}
 		}
 		public override void draw(){
-			Console.SetCursorPosition(absoluteX,absoluteY);
 			if (focused){
 				draw_focus();
 				return;
@@ -45,11 +44,13 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			Console.BackgroundColor = ElementBase.to_light(background_color);
 			Console.ForegroundColor = ElementBase.to_light(foreground_color);
 			Console.Write(text);
+			Console.SetCursorPosition(absoluteX,absoluteY);
 		}
 		public void draw_focus(){
 			Console.BackgroundColor = ElementBase.to_dark(background_color);
 			Console.ForegroundColor = ElementBase.to_dark(foreground_color);
 			Console.Write(text);
+			Console.SetCursorPosition(absoluteX,absoluteY);
 		}
 		public int focus(){
 			//up = 1
