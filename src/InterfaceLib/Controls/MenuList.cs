@@ -36,6 +36,9 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			get=>items;
 			set{
 				this.items = value;
+				if (index >= items.Length){
+					index = items.Length - 1;
+				}
 				draw();
 			}
 		}
