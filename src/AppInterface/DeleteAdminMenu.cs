@@ -77,6 +77,9 @@ namespace SecretGarden.OrderSystem.AppInterface{
 								].remove_record();
 								menu_lists["Admins"].Items = Admins.ToArray();
 								continue;
+							case 2:
+								focus_status = 3;
+								continue;
 							case 3:
 								focus_status = 1;
 								continue;
