@@ -40,15 +40,27 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 		public virtual void draw_focus(){}
 		public abstract int focus();
 		public void register_control(Label control){
-			labels.Add(control.Id,control);
+			if (labels.ContainsKey(control.Id)){
+				labels[control.Id] = control;
+			}
+			else labels.Add(control.Id,control);
 		}
 		public void register_control(Textbox control){
-			textboxes.Add(control.Id,control);
+			if (textboxes.ContainsKey(control.Id)){
+				textboxes[control.Id] = control;
+			}
+			else textboxes.Add(control.Id,control);
 		}
 		public void register_control(MenuList control){
-			menu_lists.Add(control.Id,control);
+			if (menu_lists.ContainsKey(control.Id)){
+				menu_lists[control.Id] = control;
+			}
+			else menu_lists.Add(control.Id,control);
 		}
 		public void register_control(Button control){
+			if (buttons.ContainsKey(control.Id)){
+				buttons[control.Id] = control;
+			}
 			buttons.Add(control.Id,control);
 		}
 		public string Title{
