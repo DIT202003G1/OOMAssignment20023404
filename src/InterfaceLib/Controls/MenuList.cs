@@ -75,6 +75,8 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			}
 		}
 		public override void draw(){
+			Rectangle b = new Rectangle(absoluteX, absoluteY, height, width, window.backgroundColor);
+			b.draw();
 			if (height >= items.Length){
 				int display_index = 0;
 				for (int i = 0; i < items.Length; i++){
