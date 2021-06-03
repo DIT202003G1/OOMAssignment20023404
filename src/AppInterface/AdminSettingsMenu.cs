@@ -6,7 +6,7 @@ using SecretGarden.OrderSystem.InterfaceLib.Controls;
 
 namespace SecretGarden.OrderSystem.AppInterface{
 	class AdminSettingsMenu : Window{
-		public AdminSettingsMenu():base("Admin Settings", 10, 5, 32, 10, ConsoleColor.Black){
+		public AdminSettingsMenu():base("Admin Settings", 10, 5, 32, 8, ConsoleColor.Black){
 			List<string> items = new List<String>(){
 				"New Admin",
 				"Delete Admin",
