@@ -157,6 +157,8 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 		public int focus(){
 			// 1 = confirmed
 			// 2 = prev
+			// 3 = up
+			// 4 = down
 			focused = true;
 			draw();
 			while (true){
@@ -165,9 +167,11 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 				switch (c.Key){
 					case ConsoleKey.UpArrow:
 						if (index > 0) Index --;
+						else return 3;
 					break;
 					case ConsoleKey.DownArrow:
 						if (index < items.Length - 1) Index ++;
+						else return 4;
 					break;
 					case ConsoleKey.Enter:
 						focused = false;
