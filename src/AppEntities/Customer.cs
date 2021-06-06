@@ -59,10 +59,10 @@ namespace SecretGarden.OrderSystem.AppEntities{
 		}
 		public string lastName{
 			get{
-				return DBWrapper.Instance.customer_table.retrieve(new int[]{id}).firstName;
+				return DBWrapper.Instance.customer_table.retrieve(new int[]{id}).lastName;
 			}
 			set{
-				DBWrapper.Instance.customer_table.retrieve(new int[]{id}).firstName = value;
+				DBWrapper.Instance.customer_table.retrieve(new int[]{id}).lastName = value;
 			}
 		}
 		public bool is_premium(){
