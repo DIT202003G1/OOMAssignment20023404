@@ -8,6 +8,10 @@ This is a solo work, please do not push to this repository if you're not me
 
 #### Technical Specifications
 
+> You are currently in the "NewDesign" Branch
+
+This Repository has 2 Main Branches: NewDesign, OldDesign. OldDesign is obsolete.
+
 Language: C-Sharp Dotnet (C#.net)  
 Source Code: /src/  
 Entry Point: /src/Program.cs > Program.main()  
