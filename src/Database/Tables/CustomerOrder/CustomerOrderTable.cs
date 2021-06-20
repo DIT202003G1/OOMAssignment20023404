@@ -21,7 +21,9 @@ namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 						(Datetime) result.GetDateTime("prepare_datetime"),
 						(result.GetInt16("is_delivery") == 1) ? true : false,
 						(result.GetInt16("completed") == 1) ? true : false,
-						result.GetInt32("admin_id")
+						result.GetInt32("admin_id"),
+						result.GetString("payment_method"),
+						(result.GetInt16("paid") == 1) ? true : false
 					));
 					index ++;
 				}
@@ -42,7 +44,9 @@ namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 						(Datetime) result.GetDateTime("prepare_datetime"),
 						(result.GetInt16("is_delivery") == 1) ? true : false,
 						(result.GetInt16("completed") == 1) ? true : false,
-						result.GetInt32("admin_id")
+						result.GetInt32("admin_id"),
+						result.GetString("payment_method"),
+						(result.GetInt16("paid") == 1) ? true : false
 					);
 				}
 				else return null;
