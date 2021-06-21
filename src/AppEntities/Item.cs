@@ -18,13 +18,23 @@ namespace SecretGarden.OrderSystem.AppEntity{
 			List<Item> items = new List<Item>();
 			List<ItemRecord> records = DBWrapper.Instance.item_table.get_records();
 			foreach (ItemRecord i in records){
-				items.Add(
-					new Item(
+				
+				if (i.itemType == ItemType.Others) items.Add(
+						new Item(
+							i.primaryKey[0],
+							i.itemName,
+							i.Price
+						)
+					);
+				else items.Add(
+					new Cake(
 						i.primaryKey[0],
 						i.itemName,
-						i.Price
+						i.Price,
+						(int) i.cakeSize
 					)
 				);
+
 			}
 			return items.ToArray();
 		}
@@ -32,10 +42,16 @@ namespace SecretGarden.OrderSystem.AppEntity{
 			if (!DBWrapper.Instance.item_table.exists(new int[] {id}))
 				throw new ItemException(ItemException.exception_type.ITEM_NOT_FOUND);
 			ItemRecord record = DBWrapper.Instance.item_table.retrieve(new int[] {id});
-			return new Item(
+			if (record.itemType == ItemType.Others) return new Item(
 				record.primaryKey[0],
 				record.itemName,
 				record.Price
+			);
+			else return new Cake(
+				record.primaryKey[0],
+				record.itemName,
+				record.Price,
+				(int) record.cakeSize
 			);
 		}
 		public int Id{get=>item_id;}
