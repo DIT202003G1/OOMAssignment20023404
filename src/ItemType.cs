@@ -1,4 +1,4 @@
-namespace SecretGarden.OrderSystem.AppEntities{
+namespace SecretGarden.OrderSystem{
 	enum ItemType{
 		Cake = 1,
 		Bread = 2,
