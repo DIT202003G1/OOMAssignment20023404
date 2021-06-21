@@ -16,7 +16,9 @@ namespace SecretGarden.OrderSystem.Database.Tables.Item{
 						index,
 						result.GetInt32("item_id"),
 						result.GetString("item_name"),
-						Math.Round(result.GetDouble("price"), 2)
+						Math.Round(result.GetDouble("price"), 2),
+						(ItemType) result.GetInt16("item_type"),
+						result.IsDBNull(4) ? null : result.GetInt16("cake_size")
 					));
 					index ++;
 				}
@@ -31,7 +33,9 @@ namespace SecretGarden.OrderSystem.Database.Tables.Item{
 						0,
 						result.GetInt32("item_id"),
 						result.GetString("item_name"),
-						Math.Round(result.GetDouble("price"), 2)
+						Math.Round(result.GetDouble("price"), 2),
+						(ItemType) result.GetInt16("item_type"),
+						result.IsDBNull(4) ? null : result.GetInt16("cake_size")
 					);
 				}
 				else return null;
