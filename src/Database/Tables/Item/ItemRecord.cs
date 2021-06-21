@@ -62,12 +62,14 @@ namespace SecretGarden.OrderSystem.Database.Tables.Item{
 		}
 		public string sqlTupleDefaultPk{
 			get{
-				return $"({this.rd_item_id}, '{this.rd_item_name}', {this.rd_price}, {(int) this.rd_item_type}, {this.rd_cake_size})";
+				string cake_size = (rd_cake_size == null) ? "NULL" : rd_cake_size.ToString();
+				return $"({this.rd_item_id}, '{this.rd_item_name}', {this.rd_price}, {(int) this.rd_item_type}, {cake_size})";
 			}
 		}
 		public string sqlTuple{
 			get{
-				return $"({this.rd_item_id}, '{this.rd_item_name}', {this.rd_price}, {(int) this.rd_item_type}, {this.rd_cake_size})";
+				string cake_size = (rd_cake_size == null) ? "NULL" : rd_cake_size.ToString();
+				return $"({this.rd_item_id}, '{this.rd_item_name}', {this.rd_price}, {(int) this.rd_item_type}, {cake_size})";
 			}
 		}
 	}
