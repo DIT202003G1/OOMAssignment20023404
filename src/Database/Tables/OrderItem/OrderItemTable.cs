@@ -14,7 +14,8 @@ namespace SecretGarden.OrderSystem.Database.Tables.OrderItem{
 						index,
 						result.GetInt32("order_id"),
 						result.GetInt32("item_id"),
-						result.GetInt32("quantity")
+						result.GetInt32("quantity"),
+						result.GetString("customization")
 					));
 					index ++;
 				}
@@ -35,7 +36,8 @@ namespace SecretGarden.OrderSystem.Database.Tables.OrderItem{
 						0,
 						result.GetInt32("order_id"),
 						result.GetInt32("item_id"),
-						result.GetInt32("quantity")
+						result.GetInt32("quantity"),
+						result.GetString("customization")
 					);
 				}
 				else return null;
