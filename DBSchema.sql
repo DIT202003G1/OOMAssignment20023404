@@ -18,7 +18,6 @@ CREATE TABLE customer(
 	PRIMARY KEY (customer_id)
 );
 
--- updated
 CREATE TABLE customer_order(
 	order_id int(8) NOT NULL AUTO_INCREMENT,
 	customer_id int(8) NOT NULL,
@@ -32,7 +31,6 @@ CREATE TABLE customer_order(
 	PRIMARY KEY (order_id)
 );
 
--- updated
 CREATE TABLE order_item(
 	order_id int(8) NOT NULL,
 	item_id int(8) NOT NULL,
@@ -41,7 +39,6 @@ CREATE TABLE order_item(
 	PRIMARY KEY (order_id,item_id)
 );
 
--- updated
 CREATE TABLE item(
 	item_id int(8) NOT NULL AUTO_INCREMENT,
 	item_name varchar(64) NOT NULL,
