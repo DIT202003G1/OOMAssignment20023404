@@ -1,7 +1,7 @@
 namespace SecretGarden.OrderSystem.AppEntity{
 	class Cake : Item{
 		private int size;
-		private Cake(int id, string item_name, double item_price, int cake_size)
+		public Cake(int id, string item_name, double item_price, int cake_size)
 			:base(id, item_name, item_price){
 				this.size = cake_size;
 			}
