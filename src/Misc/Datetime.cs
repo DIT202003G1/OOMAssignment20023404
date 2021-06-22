@@ -1,7 +1,7 @@
 using System;
 
 namespace SecretGarden.OrderSystem.Misc{
-	class Datetime{
+	public class Datetime{
 		private int year, month, day, hr, min, sec;
 		public static bool validate_month_day_count(int year, int month, int day){
 			int month_day_count = get_day_count(year,month);
