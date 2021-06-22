@@ -17,9 +17,9 @@ namespace SecretGarden.OrderSystem.AppEntity
 		private string admin_password_salt;
 		private Datetime admin_establish_date;
 
-		private int AdminId => admin_id;
+		public int AdminId => admin_id;
 
-		private string FirstName
+		public string firstName
 		{
 			get => admin_first_name;
 			set
@@ -29,7 +29,7 @@ namespace SecretGarden.OrderSystem.AppEntity
 			}
 		}
 
-		private string LastName
+		public string lastName
 		{
 			get => admin_last_name;
 			set
@@ -39,11 +39,11 @@ namespace SecretGarden.OrderSystem.AppEntity
 			}
 		}
 
-		private Datetime EstablishDate{
+		public Datetime establishDate{
 			get=>admin_establish_date;
 		}
 
-		private string Password
+		public string Password
 		{
 			set
 			{
