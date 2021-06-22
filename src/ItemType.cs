@@ -1,5 +1,5 @@
 namespace SecretGarden.OrderSystem{
-	enum ItemType{
+	public enum ItemType{
 		Cake = 1,
 		Others = 2
 	}
