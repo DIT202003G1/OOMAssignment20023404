@@ -13,6 +13,7 @@ namespace SecretGarden.OrderSystem.AppEntity{
 		private bool completed;
 		private Admin admin;
 		private Customer customer;
+		private Bill bill;
 		public void add_item(Item item, int quantity){
 			items.Add(new OrderItem(item, quantity));
 		}
