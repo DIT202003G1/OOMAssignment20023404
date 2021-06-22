@@ -5,7 +5,7 @@ using SecretGarden.OrderSystem.Database;
 using SecretGarden.OrderSystem.Exceptions;
 
 namespace SecretGarden.OrderSystem.AppEntity{
-	class Item{
+	public class Item{
 		int item_id;
 		string item_name;
 		double item_price;
