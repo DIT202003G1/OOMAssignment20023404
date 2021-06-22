@@ -38,7 +38,9 @@ namespace SecretGarden.OrderSystem.AppEntity{
 				)
 			);
 			List<CustomerOrderRecord> records = DBWrapper.Instance.customer_order_table.get_records();
-			return records[records.ToArray().Length - 1].primaryKey[0];
+			int id = records[records.ToArray().Length - 1].primaryKey[0];
+			orders.Add(new Order(id));
+			return id;
 		}
 	}
 }

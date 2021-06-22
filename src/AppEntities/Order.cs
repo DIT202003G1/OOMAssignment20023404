@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 
 using SecretGarden.OrderSystem.Database;
+using SecretGarden.OrderSystem.Database.Tables.CustomerOrder;
+using SecretGarden.OrderSystem.Database.Tables.AdminAccount;
+using SecretGarden.OrderSystem.Database.Tables.Customer;
 using SecretGarden.OrderSystem.Misc;
 
 namespace SecretGarden.OrderSystem.AppEntity{
@@ -14,6 +17,18 @@ namespace SecretGarden.OrderSystem.AppEntity{
 		private Admin admin;
 		private Customer customer;
 		private Bill bill;
+		public Order(int id){
+			CustomerOrderRecord record = DBWrapper.Instance.customer_order_table.retrieve(new int[] {id});
+			AdminAccountRecord admin_record = DBWrapper.Instance.admin_account_table.retrieve(new int[] {record.adminId});
+			CustomerRecord customer_record = DBWrapper.Instance.customer_table.retrieve(new int[] {record.customerID});
+			order_id = id;
+			order_datetime = record.orderDatetime;
+			prepare_datetime = record.prepareDatetime;
+			delivery = record.isDelivery;
+			completed = record.Completed;
+			admin = Admin.fetch_admin(admin_record.primaryKey[0]);
+			customer = Customer.fetch_customer(admin_record.primaryKey[0]);
+		}
 		public void add_item(Item item, int quantity){
 			items.Add(new OrderItem(item, quantity));
 		}
