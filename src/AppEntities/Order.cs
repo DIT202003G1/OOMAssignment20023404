@@ -33,6 +33,12 @@ namespace SecretGarden.OrderSystem.AppEntity{
 			}
 			return false;
 		}
+		public List<OrderItem> Items{
+			get=>items;
+		}
+		public Customer Customer{
+			get=>customer;
+		}
 		public Admin Admin{
 			get=>admin;
 		}
