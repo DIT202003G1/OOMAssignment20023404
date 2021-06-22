@@ -29,7 +29,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.OrderItem{
 			}
 		}
 		public OrderItemRecord retrieve(int[] pk_id){
-			using (MySqlDataReader result = DBWrapper.Instance.execute_with_result($"SELECT * FROM {this.table_name} WHERE item_id = {pk_id[0]}")){
+			using (MySqlDataReader result = DBWrapper.Instance.execute_with_result($"SELECT * FROM {this.table_name} WHERE order_id={pk_id[0]} AND item_id = {pk_id[1]}")){
 				if (result.Read()){
 					return new OrderItemRecord(
 						this,
