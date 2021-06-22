@@ -20,7 +20,7 @@ namespace SecretGarden.OrderSystem.Misc{
 			byte[] hashed_bytes = new SHA256CryptoServiceProvider().ComputeHash(salted_bytes);
 			return byte_to_string(hashed_bytes);
 		}
-		public static bool velidate_password(string salt, string password, string hashed){
+		public static bool validate_password(string salt, string password, string hashed){
 			string inputted_hashed = hash_password(salt, password);
 			return inputted_hashed == hashed;
 		}
