@@ -4,7 +4,7 @@ using SecretGarden.OrderSystem.Database.Tables.Item;
 using SecretGarden.OrderSystem.Database;
 using SecretGarden.OrderSystem.Exceptions;
 
-namespace SecretGarden.OrderSystem.AppEntity{
+namespace SecretGarden.OrderSystem.AppEntities{
 	public class Item{
 		int item_id;
 		string item_name;

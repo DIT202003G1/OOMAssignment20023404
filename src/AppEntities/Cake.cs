@@ -1,4 +1,4 @@
-namespace SecretGarden.OrderSystem.AppEntity{
+namespace SecretGarden.OrderSystem.AppEntities{
 	class Cake : Item{
 		private int size;
 		public Cake(int id, string item_name, double item_price, int cake_size)

@@ -1,6 +1,6 @@
 using SecretGarden.OrderSystem.Database;
 
-namespace SecretGarden.OrderSystem.AppEntity
+namespace SecretGarden.OrderSystem.AppEntities
 {
 	public class OrderItem
 	{

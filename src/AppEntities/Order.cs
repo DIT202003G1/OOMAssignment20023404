@@ -6,7 +6,7 @@ using SecretGarden.OrderSystem.Database.Tables.AdminAccount;
 using SecretGarden.OrderSystem.Database.Tables.Customer;
 using SecretGarden.OrderSystem.Misc;
 
-namespace SecretGarden.OrderSystem.AppEntity{
+namespace SecretGarden.OrderSystem.AppEntities{
 	class Order{
 		private int order_id;
 		private List<OrderItem> items = new List<OrderItem>();

@@ -6,7 +6,7 @@ using SecretGarden.OrderSystem.Database.Tables.AdminAccount;
 using SecretGarden.OrderSystem.Exceptions;
 using SecretGarden.OrderSystem.Misc;
 
-namespace SecretGarden.OrderSystem.AppEntity
+namespace SecretGarden.OrderSystem.AppEntities
 {
 	public class Admin
 	{

@@ -6,7 +6,7 @@ using SecretGarden.OrderSystem.Exceptions;
 using SecretGarden.OrderSystem.Database;
 using SecretGarden.OrderSystem.Database.Tables.CustomerOrder;
 
-namespace SecretGarden.OrderSystem.AppEntity{
+namespace SecretGarden.OrderSystem.AppEntities{
 	class OrderBook{
 		private OrderBook instance;
 		private OrderBook(){}
