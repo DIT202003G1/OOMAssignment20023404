@@ -102,7 +102,7 @@ namespace SecretGarden.OrderSystem.AppEntities
 				DateTime.Now
 			);
 
-			DBWrapper.Instance.admin_account_table.new_record(record);
+			DBWrapper.Instance.admin_account_table.append_record(record);
 
 			var records = DBWrapper.Instance.admin_account_table.get_records();
 			return records[records.ToArray().Length - 1].primaryKey[0];
