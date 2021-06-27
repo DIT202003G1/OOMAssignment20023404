@@ -13,7 +13,8 @@ namespace SecretGarden.OrderSystem.AppInterface{
 		}
 		public override ConsoleKey focus(){
 			draw();
-			return buttons["OK"].focus();
+			while (buttons["OK"].focus() != ConsoleKey.Enter);
+			return ConsoleKey.Enter;
 		}
 	}
 }
