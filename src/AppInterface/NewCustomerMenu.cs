@@ -137,7 +137,6 @@ namespace SecretGarden.OrderSystem.AppInterface{
 						continue;
 				}
 			}
-			return ConsoleKey.Enter;
 		}
 	}
 }
