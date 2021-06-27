@@ -98,7 +98,7 @@ namespace SecretGarden.OrderSystem.AppEntities{
 				premium_start_date = (Datetime) DateTime.Now;
 				premium_end_date = premium_start_date + new int[] {0,premium_factor,0,0,0,0};
 			}
-			DBWrapper.Instance.customer_table.new_record(
+			DBWrapper.Instance.customer_table.append_record(
 				new CustomerRecord(
 					DBWrapper.Instance.customer_table,
 					1,
