@@ -53,28 +53,23 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			Console.Write(text);
 			Console.SetCursorPosition(absoluteX,absoluteY);
 		}
-		public int focus(){
-			//up = 1
-			//down = 2
-			//left = 3
-			//right = 4
-			//enter = 5
+		public ConsoleKey focus(){
 			while(true){
 				Console.SetCursorPosition(absoluteX,absoluteY);
 				draw();
 				ConsoleKeyInfo c = Console.ReadKey();
 				switch (c.Key){
 					case ConsoleKey.UpArrow:
-						return 1;
+						return ConsoleKey.UpArrow;
 					case ConsoleKey.DownArrow:
-						return 2;
+						return ConsoleKey.DownArrow;
 					case ConsoleKey.LeftArrow:
-						return 3;
+						return ConsoleKey.LeftArrow;
 					case ConsoleKey.RightArrow:
-						return 4;
+						return ConsoleKey.RightArrow;
 					case ConsoleKey.Enter:
 						on_enter(this);
-						return 5;
+						return ConsoleKey.Enter;
 				}
 			}
 		}

@@ -159,7 +159,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 				}
 			}
 		}
-		public int focus(){
+		public ConsoleKey focus(){
 			// 1 = confirmed
 			// 2 = prev
 			// 3 = up
@@ -172,18 +172,18 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 				switch (c.Key){
 					case ConsoleKey.UpArrow:
 						if (index > 0) Index --;
-						else return 3;
+						else return ConsoleKey.UpArrow;
 					break;
 					case ConsoleKey.DownArrow:
 						if (index < items.Length - 1) Index ++;
-						else return 4;
+						else return ConsoleKey.DownArrow;
 					break;
 					case ConsoleKey.Enter:
 						focused = false;
-						return 1;
+						return ConsoleKey.Enter;
 					case ConsoleKey.Tab:
 						focused = false;
-						return 2;
+						return ConsoleKey.Tab;
 				}
 			}
 		}

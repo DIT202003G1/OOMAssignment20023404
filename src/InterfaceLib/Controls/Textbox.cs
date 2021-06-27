@@ -93,7 +93,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			Console.ForegroundColor = foregroundColor;
 			Console.WriteLine(displayText);
 		}
-		public int focus(){
+		public ConsoleKey focus(){
 			// 1 = ENTER
 			// 2 = UP
 			// 3 = DOWN
@@ -118,13 +118,13 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 						break;
 						case ConsoleKey.Enter:
 							focused = false;
-							return 1;
+							return ConsoleKey.Enter;
 						case ConsoleKey.UpArrow:
 							focused = false;
-							return 2;
+							return ConsoleKey.UpArrow;
 						case ConsoleKey.DownArrow:
 							focused = false;
-							return 3;
+							return ConsoleKey.DownArrow;
 					}
 				}
 			}
