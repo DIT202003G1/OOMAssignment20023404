@@ -39,7 +39,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			t_idsearch.maxLength = 8;
 			t_idsearch.allowedChars = StringUtils.numbers;
 		}
-		public override int focus(){
+		public override ConsoleKey focus(){
 			// 1 = search
 			// 2 = list
 			// 3 = button
@@ -48,11 +48,9 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			while (true){
 				switch (focus_status){
 					case 1:
-						int r_search = textboxes["IDSearch"].focus();
+						ConsoleKey r_search = textboxes["IDSearch"].focus();
 						switch(r_search){
-							//1 = enter
-							//3 = down
-							case 1:
+							case ConsoleKey.Enter:
 								int i;
 								if (textboxes["IDSearch"].Text == "") i = -1;
 								else i = get_index_by_admin_id(Int32.Parse(textboxes["IDSearch"].Text));
@@ -60,15 +58,15 @@ namespace SecretGarden.OrderSystem.AppInterface{
 								else menu_lists["Admins"].Index = i;
 								focus_status = 2;
 								continue;
-							case 3:
+							case ConsoleKey.DownArrow:
 								focus_status = 2;
 								continue;
 						}
 					break;
 					case 2:
-						int r_list = menu_lists["Admins"].focus();
+						ConsoleKey r_list = menu_lists["Admins"].focus();
 						switch(r_list){
-							case 1:
+							case ConsoleKey.Enter:
 								if (DBWrapper.Instance.admin_account_table.get_records().ToArray().Length == 0){
 									continue;
 								}
@@ -77,24 +75,24 @@ namespace SecretGarden.OrderSystem.AppInterface{
 								].remove_record();
 								menu_lists["Admins"].Items = Admins.ToArray();
 								continue;
-							case 2:
+							case ConsoleKey.DownArrow:
 								focus_status = 3;
 								continue;
-							case 3:
+							case ConsoleKey.UpArrow:
 								focus_status = 1;
 								continue;
-							case 4:
+							case ConsoleKey.Tab:
 								focus_status = 3;
 								continue;
 						}
 					break;
 					case 3:
-						int r_button = buttons["Close"].focus();
+						ConsoleKey r_button = buttons["Close"].focus();
 						switch(r_button){
-							case 1:
+							case ConsoleKey.UpArrow:
 								focus_status = 2;
 							break;
-							case 5:
+							case ConsoleKey.Enter:
 								return 0;
 						}
 

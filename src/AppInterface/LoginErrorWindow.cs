@@ -11,7 +11,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			Label l_msg = new Label(this,"Message",2,1,28,1, ConsoleColor.White, StringUtils.hide_by_max_width(content, 28));
 			Button b_ok = new Button(this, "OK", 2, 3, ConsoleColor.Black, ConsoleColor.White, "  OK  ");
 		}
-		public override int focus(){
+		public override ConsoleKey focus(){
 			draw();
 			return buttons["OK"].focus();
 		}

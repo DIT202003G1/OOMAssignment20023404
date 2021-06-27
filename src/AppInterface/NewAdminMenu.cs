@@ -17,7 +17,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			Button b_cancel = new Button(this, "Cancel", 9, 7, ConsoleColor.Black, ConsoleColor.White, "Cancel");
 			t_pw.passwordChar = '*';
 		}
-		public override int focus(){
+		public override ConsoleKey focus(){
 			//1 = fname
 			//2 = lname
 			//3 = pw
@@ -28,54 +28,54 @@ namespace SecretGarden.OrderSystem.AppInterface{
 				draw();
 				switch (focus_status){
 					case 1:
-						int r_fname = textboxes["Firstname"].focus();
+						ConsoleKey r_fname = textboxes["Firstname"].focus();
 						switch (r_fname){
-							case 1:
+							case ConsoleKey.DownArrow:
 								focus_status = 2;
 								continue;
-							case 3:
+							case ConsoleKey.Enter:
 								focus_status = 2;
 								continue;
 						}
 					break;
 					case 2:
-						int r_lname = textboxes["Lastname"].focus();
+						ConsoleKey r_lname = textboxes["Lastname"].focus();
 						switch (r_lname){
-							case 1:
+							case ConsoleKey.DownArrow:
 								focus_status = 3;
 								continue;
-							case 2:
+							case ConsoleKey.UpArrow:
 								focus_status = 1;
 								continue;
-							case 3:
+							case ConsoleKey.Enter:
 								focus_status = 3;
 								continue;
 						}
 					break;
 					case 3:
-						int r_pw = textboxes["Password"].focus();
+						ConsoleKey r_pw = textboxes["Password"].focus();
 						switch (r_pw){
-							case 1:
+							case ConsoleKey.DownArrow:
 								focus_status = 4;
 								continue;
-							case 2:
+							case ConsoleKey.UpArrow:
 								focus_status = 2;
 								continue;
-							case 3:
+							case ConsoleKey.Enter:
 								focus_status = 4;
 								continue;
 						}
 					break;
 					case 4:
-						int r_save = buttons["Save"].focus();
+						ConsoleKey r_save = buttons["Save"].focus();
 						switch (r_save){
-							case 1:
+							case ConsoleKey.UpArrow:
 								focus_status = 3;
 								continue;
-							case 4:
+							case ConsoleKey.RightArrow:
 								focus_status = 5;
 								continue;
-							case 5:
+							case ConsoleKey.Enter:
 								if (textboxes["Firstname"].Text.Trim() == "" || textboxes["Lastname"].Text.Trim() == "" || textboxes["Password"].Text == ""){
 									this.height = 12;
 									buttons["Save"].Y = 9;
@@ -90,15 +90,15 @@ namespace SecretGarden.OrderSystem.AppInterface{
 						}
 					break;
 					case 5:
-						int r_cancel = buttons["Cancel"].focus();
+						ConsoleKey r_cancel = buttons["Cancel"].focus();
 						switch (r_cancel){
-							case 1:
+							case ConsoleKey.UpArrow:
 								focus_status = 3;
 								continue;
-							case 3:
+							case ConsoleKey.LeftArrow:
 								focus_status = 4;
 								continue;
-							case 5:
+							case ConsoleKey.Enter:
 								return 0;
 						}
 					break;

@@ -18,12 +18,12 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			};
 			MenuList m_menu = new MenuList(this, "Menu", 2, 3, 28, 5, ConsoleColor.White, ConsoleColor.Black, items.ToArray());
 		}
-		public override int focus(){
+		public override ConsoleKey focus(){
 			while (true){
-				int status = menu_lists["Menu"].focus();
-				if (status == 1) break;
+				ConsoleKey status = menu_lists["Menu"].focus();
+				if (status == ConsoleKey.Enter) break;
 			}
-			return menu_lists["Menu"].Index;
+			return ConsoleKey.Enter;
 		}
 	}
 }

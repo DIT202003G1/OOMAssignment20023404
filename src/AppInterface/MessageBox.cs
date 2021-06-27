@@ -25,10 +25,10 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			}
 			return length;
 		}
-		public override int focus(){
+		public override ConsoleKey focus(){
 			draw();
-			while (buttons["Confirm"].focus() != 5);
-			return 0;
+			while (buttons["Confirm"].focus() != ConsoleKey.Enter);
+			return ConsoleKey.Enter;
 		}
 	}
 }

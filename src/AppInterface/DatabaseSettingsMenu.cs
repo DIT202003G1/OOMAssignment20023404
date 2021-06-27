@@ -32,7 +32,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			DBConfig.Password = textboxes["Password"].Text;
 			DBConfig.DBName = textboxes["DBName"].Text.Trim();
 		}
-		public override int focus(){
+		public override ConsoleKey focus(){
 			// 1 = hostname
 			// 2 = username
 			// 3 = password
@@ -43,70 +43,65 @@ namespace SecretGarden.OrderSystem.AppInterface{
 				draw();
 				switch (focus_status){
 					case 1:
-						int r_hostname = textboxes["IPAddress"].focus();
+						ConsoleKey r_hostname = textboxes["IPAddress"].focus();
 						switch(r_hostname){
-							case 1:
+							case ConsoleKey.DownArrow:
 								focus_status = 2;
 								continue;
-							case 3:
+							case ConsoleKey.Enter:
 								focus_status = 2;
 								continue;
 						}
 						continue;
 					case 2:
-						int r_username = textboxes["Username"].focus();
+						ConsoleKey r_username = textboxes["Username"].focus();
 						switch(r_username){
-							case 1:
+							case ConsoleKey.DownArrow:
 								focus_status = 3;
 								continue;
-							case 2:
+							case ConsoleKey.UpArrow:
 								focus_status = 1;
 								continue;
-							case 3:
+							case ConsoleKey.Enter:
 								focus_status = 3;
 								continue;
 						}
 						continue;
 					case 3:
-						int r_password = textboxes["Password"].focus();
+						ConsoleKey r_password = textboxes["Password"].focus();
 						switch(r_password){
-							case 1:
+							case ConsoleKey.DownArrow:
 								focus_status = 4;
 								continue;
-							case 2:
+							case ConsoleKey.UpArrow:
 								focus_status = 2;
 								continue;
-							case 3:
+							case ConsoleKey.Enter:
 								focus_status = 4;
 								continue;
 						}
 						continue;
 					case 4:
-						int r_dbname = textboxes["DBName"].focus();
+						ConsoleKey r_dbname = textboxes["DBName"].focus();
 						switch(r_dbname){
-							case 1:
+							case ConsoleKey.DownArrow:
 								focus_status = 5;
 								continue;
-							case 2:
+							case ConsoleKey.UpArrow:
 								focus_status = 3;
 								continue;
-							case 3:
+							case ConsoleKey.Enter:
 								focus_status = 5;
 								continue;
 						}
 						continue;
 					case 5:
-						//up = 1
-						//down = 2
-						//left = 3
-						//right = 4
-						//enter = 5
-						int r_save = buttons["Save"].focus();
+						ConsoleKey r_save = buttons["Save"].focus();
 						switch(r_save){
-							case 1:
+							case ConsoleKey.UpArrow:
 								focus_status = 4;
 								continue;
-							case 5:
+							case ConsoleKey.Enter:
 								if (velidate() == 0){
 									save();
 									return 0;

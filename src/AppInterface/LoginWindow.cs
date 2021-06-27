@@ -17,7 +17,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			t_id.maxLength = 8;
 			t_pw.passwordChar = '*';
 		}
-		public override int focus(){
+		public override ConsoleKey focus(){
 			draw();
 			focus_status = 1;
 			//status 1 = ID
@@ -26,36 +26,36 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			while (true){
 				switch (focus_status){
 					case 1:
-						int id_status = textboxes["ID"].focus();
+						ConsoleKey id_status = textboxes["ID"].focus();
 						switch (id_status){
-							case 1:
+							case ConsoleKey.DownArrow:
 								focus_status=2;
 								continue;
-							case 3:
+							case ConsoleKey.Enter:
 								focus_status=2;
 								continue;
 						}
 					break;
 					case 2:
-						int pw_status = textboxes["Password"].focus();
+						ConsoleKey pw_status = textboxes["Password"].focus();
 						switch (pw_status){
-							case 1:
+							case ConsoleKey.DownArrow:
 								focus_status=3;
 								continue;
-							case 2:
+							case ConsoleKey.UpArrow:
 								focus_status=1;
 								continue;
-							case 3:
+							case ConsoleKey.Enter:
 								focus_status=3;
 								continue;
 						}
 					break;
 					case 3:
-						int button_status = buttons["Login"].focus();
+						ConsoleKey button_status = buttons["Login"].focus();
 						switch (button_status){
-							case 5:
-								return 0;
-							case 1:
+							case ConsoleKey.Enter:
+								return ConsoleKey.Enter;
+							case ConsoleKey.UpArrow:
 								focus_status=2;
 								continue;
 						}
