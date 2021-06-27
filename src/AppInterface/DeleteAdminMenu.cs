@@ -31,7 +31,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			}
 			return -1;
 		}
-		public DeleteAdminMenu():base("Delete Admin", 4, 3, 32, 12, ConsoleColor.Black){
+		public DeleteAdminMenu():base("Delete Admin", 2, 1, 32, 12, ConsoleColor.Black){
 			Label l_message = new Label(this, "Message", 2, 1, 14, 1, ConsoleColor.White, "Search by ID: ");
 			Textbox t_idsearch = new Textbox(this, "IDSearch", 18, 1, 12, 1, ConsoleColor.Black, ConsoleColor.White,"");
 			MenuList m_menu = new MenuList(this, "Admins", 2, 3, 28, 5, ConsoleColor.White, ConsoleColor.Black, Admins.ToArray());
@@ -44,8 +44,10 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			// 2 = list
 			// 3 = button
 			focus_status = 1;
-			draw();
 			while (true){
+				Console.ResetColor();
+				Console.Clear();
+				draw();
 				switch (focus_status){
 					case 1:
 						ConsoleKey r_search = textboxes["IDSearch"].focus();
