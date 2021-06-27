@@ -38,7 +38,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 			draw_focus();
 		}
 		public virtual void draw_focus(){}
-		public abstract int focus();
+		public abstract ConsoleKey focus();
 		public void register_control(Label control){
 			if (labels.ContainsKey(control.Id)){
 				labels[control.Id] = control;
