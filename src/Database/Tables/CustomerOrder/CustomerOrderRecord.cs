@@ -29,7 +29,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 			this.rd_payment_method = payment_method;
 			this.rd_paid = paid;
 		}
-		public int[] primaryKey{get=>new int[] {rd_customer_id};}
+		public int[] primaryKey{get=>new int[] {rd_order_id};}
 		public int customerID{
 			get=>rd_customer_id;
 			set{
