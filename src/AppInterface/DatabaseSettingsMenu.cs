@@ -6,7 +6,7 @@ using SecretGarden.OrderSystem.InterfaceLib.Controls;
 
 namespace SecretGarden.OrderSystem.AppInterface{
 	class DatabaseSettingsMenu : Window{
-		public DatabaseSettingsMenu():base("Database Settings", 4, 3, 40, 15, ConsoleColor.Black){
+		public DatabaseSettingsMenu():base("Database Settings", 2, 1, 40, 15, ConsoleColor.Black){
 			Label l_message1 = new Label(this, "Message_1", 2, 1, 36, 1, ConsoleColor.White, "Change only if you know what you're");
 			Label l_message2 = new Label(this, "Message_2", 2, 2, 36, 1, ConsoleColor.White, "doing!");
 			Label l_ip_addr = new Label(this, "IPAddress", 2, 4, 13, 1, ConsoleColor.White, "IP Address");
@@ -40,6 +40,8 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			// 5 = save
 			focus_status = 1;
 			while (true){
+				Console.ResetColor();
+				Console.Clear();
 				draw();
 				switch (focus_status){
 					case 1:
