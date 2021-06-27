@@ -7,7 +7,7 @@ using SecretGarden.OrderSystem.InterfaceLib.Controls;
 namespace SecretGarden.OrderSystem.AppInterface{
 	class MainMenu : Window{
 		// (string title, int x, int y, int width, int height, ConsoleColor color)
-		public MainMenu():base("Menu", 4, 3, 32, 10, ConsoleColor.Black){
+		public MainMenu():base("Menu", 2, 1, 32, 10, ConsoleColor.Black){
 			Label l_message = new Label(this, "Message", 2, 1, 28, 1, ConsoleColor.White, "Logged in as: ");
 			List<string> items = new List<String>(){
 				"New Order",
@@ -20,6 +20,9 @@ namespace SecretGarden.OrderSystem.AppInterface{
 		}
 		public override ConsoleKey focus(){
 			while (true){
+				Console.ResetColor();
+				Console.Clear();
+				draw();
 				ConsoleKey status = menu_lists["Menu"].focus();
 				if (status == ConsoleKey.Enter) break;
 			}
