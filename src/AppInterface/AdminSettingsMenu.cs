@@ -10,7 +10,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			List<string> items = new List<String>(){
 				"New Admin",
 				"Delete Admin",
-				"Update Password",
+				"Update My Admin Account",
 				"Database Settings",
 				"Back"
 			};
