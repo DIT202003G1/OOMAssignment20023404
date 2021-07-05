@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 using SecretGarden.OrderSystem.Database;
 using SecretGarden.OrderSystem.Database.Tables.CustomerOrder;
+using SecretGarden.OrderSystem.Database.Tables.OrderItem;
 using SecretGarden.OrderSystem.Database.Tables.AdminAccount;
 using SecretGarden.OrderSystem.Database.Tables.Customer;
 using SecretGarden.OrderSystem.Misc;
@@ -28,6 +29,15 @@ namespace SecretGarden.OrderSystem.AppEntities{
 			completed = record.Completed;
 			admin = Admin.fetch_admin(admin_record.primaryKey[0]);
 			customer = Customer.fetch_customer(admin_record.primaryKey[0]);
+
+			List<OrderItemRecord> orderItemRecords = DBWrapper.Instance.order_item_table.get_records();
+			foreach (OrderItemRecord i in orderItemRecords){
+				if (i.primaryKey[0] == id){
+					OrderItem orderItem = new OrderItem(Item.fetch_item(i.primaryKey[1]), i.Quantity);
+					orderItem.Remark = i.Customization;
+					this.items.Add(orderItem);
+				}
+			}
 		}
 		public void add_item(Item item, int quantity){
 			items.Add(new OrderItem(item, quantity));
