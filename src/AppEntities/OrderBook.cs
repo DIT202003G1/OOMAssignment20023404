@@ -8,7 +8,7 @@ using SecretGarden.OrderSystem.Database.Tables.CustomerOrder;
 
 namespace SecretGarden.OrderSystem.AppEntities{
 	class OrderBook{
-		private OrderBook instance;
+		private static OrderBook instance;
 		private OrderBook(){
 			List<CustomerOrderRecord> orderRecords = DBWrapper.Instance.customer_order_table.get_records();
 			foreach (CustomerOrderRecord i in orderRecords){
@@ -47,9 +47,9 @@ namespace SecretGarden.OrderSystem.AppEntities{
 			orders.Add(new Order(id));
 			return id;
 		}
-		public OrderBook Instance{
+		public static OrderBook Instance{
 			get{
-				if (this.instance == null) instance = new OrderBook();
+				if (instance == null) instance = new OrderBook();
 				return instance;
 			}
 		}
