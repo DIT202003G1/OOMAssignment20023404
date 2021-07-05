@@ -22,7 +22,9 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 			this.width = width;
 			this.height = height;
 		}
+
 		public override void draw(){
+			on_draw();
 			Rectangle base_plate = new Rectangle(X, Y, Height, Width, background_color);
 			Rectangle title_plate = new Rectangle(X, Y, 1, Width, ElementBase.to_dark(background_color));
 			base_plate.draw();
@@ -37,6 +39,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib{
 			foreach (Button i in buttons.Values) i.draw();
 			draw_focus();
 		}
+		protected virtual void on_draw(){}
 		public virtual void draw_focus(){}
 		public abstract ConsoleKey focus();
 		public void register_control(Label control){
