@@ -2,6 +2,7 @@ using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 
 using SecretGarden.OrderSystem.Misc;
+using SecretGarden.OrderSystem.Exceptions;
 
 namespace SecretGarden.OrderSystem.Database.Tables.Customer{
 	class CustomerTable : DBTable, IDBTable<CustomerRecord>{
@@ -47,7 +48,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.Customer{
 						result.IsDBNull(7) ? null : (Datetime) result.GetDateTime("premium_end_date")
 					);
 				}
-				else return null;
+				else throw new CustomerException(CustomerException.exception_type.CUSTOMER_FOUND);
 			}
 		}
 

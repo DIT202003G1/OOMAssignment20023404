@@ -1,6 +1,8 @@
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 
+using SecretGarden.OrderSystem.Exceptions;
+
 namespace SecretGarden.OrderSystem.Database.Tables.OrderItem{
 	class OrderItemTable : DBTable, IDBTable<OrderItemRecord>{
 		public OrderItemTable():base("order_item"){}
@@ -40,7 +42,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.OrderItem{
 						result.GetString("customization")
 					);
 				}
-				else return null;
+				else throw new OrderException(OrderException.exception_type.ORDER_ITEM_NOT_FOUND);
 			}
 		}
 		public void append_record(OrderItemRecord record){

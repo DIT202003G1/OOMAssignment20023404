@@ -2,6 +2,7 @@ using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 
 using SecretGarden.OrderSystem.Misc;
+using SecretGarden.OrderSystem.Exceptions;
 
 namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 	class CustomerOrderTable : DBTable, IDBTable<CustomerOrderRecord>{
@@ -49,7 +50,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 						(result.GetInt16("paid") == 1) ? true : false
 					);
 				}
-				else return null;
+				else throw new OrderException(OrderException.exception_type.ORDER_NOT_FOUND);
 			}
 		}
 		public void update(CustomerOrderRecord value){

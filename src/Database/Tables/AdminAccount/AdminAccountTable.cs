@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 using SecretGarden.OrderSystem.Misc;
+using SecretGarden.OrderSystem.Exceptions;
 
 namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{
 	class AdminAccountTable : DBTable, IDBTable<AdminAccountRecord>{
@@ -40,7 +41,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.AdminAccount{
 						(Datetime) result.GetDateTime("establish_date")
 					);
 				}
-				else return null;
+				else throw new AdminAccountException(AdminAccountException.exception_type.ADMIN_NOT_FOUND);
 			};
 		}
 		public void update(AdminAccountRecord value){

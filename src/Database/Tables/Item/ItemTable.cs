@@ -2,6 +2,8 @@ using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System;
 
+using SecretGarden.OrderSystem.Exceptions;
+
 namespace SecretGarden.OrderSystem.Database.Tables.Item{
 	class ItemTable : DBTable, IDBTable<ItemRecord>{
 		public ItemTable():base("item"){}
@@ -38,7 +40,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.Item{
 						result.IsDBNull(4) ? null : result.GetInt16("cake_size")
 					);
 				}
-				else return null;
+				else throw new ItemException(ItemException.exception_type.ITEM_NOT_FOUND);
 			}
 		}
 		public void update(ItemRecord value){
