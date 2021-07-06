@@ -36,7 +36,6 @@ namespace SecretGarden.OrderSystem.AppEntities{
 			foreach (OrderItemRecord i in orderItemRecords){
 				if (i.primaryKey[0] == id){
 					OrderItem orderItem = new OrderItem(Item.fetch_item(i.primaryKey[1]), this, i.Quantity, i.Customization);
-					orderItem.Remark = i.Customization;
 					this.items.Add(orderItem);
 				}
 			}
