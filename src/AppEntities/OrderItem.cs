@@ -10,6 +10,7 @@ namespace SecretGarden.OrderSystem.AppEntities
 
 		private Order order;
 		public OrderItem(Item item, Order order, int quantity, string remark){
+			this.order = order;
 			this.item = item;
 			this.quantity = quantity;
 			this.remark = remark;
@@ -34,6 +35,10 @@ namespace SecretGarden.OrderSystem.AppEntities
 				DBWrapper.Instance.order_item_table.retrieve(new[] {order.Id, item.Id}).Customization = value;
 				remark = value;
 			}
+		}
+
+		public Order Order{
+			get=>order;
 		}
 	}
 }
