@@ -35,7 +35,7 @@ namespace SecretGarden.OrderSystem.AppEntities{
 			List<OrderItemRecord> orderItemRecords = DBWrapper.Instance.order_item_table.get_records();
 			foreach (OrderItemRecord i in orderItemRecords){
 				if (i.primaryKey[0] == id){
-					OrderItem orderItem = new OrderItem(Item.fetch_item(i.primaryKey[1]), i.Quantity, i.Customization);
+					OrderItem orderItem = new OrderItem(Item.fetch_item(i.primaryKey[1]), this, i.Quantity, i.Customization);
 					orderItem.Remark = i.Customization;
 					this.items.Add(orderItem);
 				}
@@ -52,7 +52,7 @@ namespace SecretGarden.OrderSystem.AppEntities{
 					remarks
 				)
 			);
-			items.Add(new OrderItem(item, quantity, remarks));
+			items.Add(new OrderItem(item, this, quantity, remarks));
 		}
 		public void add_item(Item item, int quantity){
 			add_item(item, quantity, "");

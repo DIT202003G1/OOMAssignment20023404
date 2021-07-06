@@ -7,7 +7,9 @@ namespace SecretGarden.OrderSystem.AppEntities
 		private Item item;
 		private int quantity;
 		private string remark;
-		public OrderItem(Item item, int quantity, string remark){
+
+		private Order order;
+		public OrderItem(Item item, Order order, int quantity, string remark){
 			this.item = item;
 			this.quantity = quantity;
 			this.remark = remark;
@@ -20,7 +22,7 @@ namespace SecretGarden.OrderSystem.AppEntities
 			get => quantity;
 			set
 			{
-				DBWrapper.Instance.order_item_table.retrieve(new[] {item.Id}).Quantity = value;
+				DBWrapper.Instance.order_item_table.retrieve(new[] {order.Id ,item.Id}).Quantity = value;
 				quantity = value;
 			}
 		}
@@ -29,7 +31,7 @@ namespace SecretGarden.OrderSystem.AppEntities
 			get => remark;
 			set
 			{
-				DBWrapper.Instance.order_item_table.retrieve(new[] {item.Id}).Customization = value;
+				DBWrapper.Instance.order_item_table.retrieve(new[] {order.Id, item.Id}).Customization = value;
 				remark = value;
 			}
 		}
