@@ -1,6 +1,6 @@
 namespace SecretGarden.OrderSystem{
 	public enum ItemType{
-		Cake = 1,
-		Others = 2
+		Others = 1,
+		Cake = 2
 	}
 }
