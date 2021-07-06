@@ -7,7 +7,7 @@ using SecretGarden.OrderSystem.Database.Tables.Customer;
 using SecretGarden.OrderSystem.Exceptions;
 
 namespace SecretGarden.OrderSystem.AppEntities{
-	class Customer{
+	public class Customer{
 		private int customer_id;
 		private string customer_first_name, customer_last_name, customer_telephone, customer_address;
 		private Datetime customer_establish_date, customer_premium_start_date, customer_premium_end_date;

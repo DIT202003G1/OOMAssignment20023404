@@ -8,7 +8,7 @@ using SecretGarden.OrderSystem.Database.Tables.Customer;
 using SecretGarden.OrderSystem.Misc;
 
 namespace SecretGarden.OrderSystem.AppEntities{
-	class Order{
+	public class Order{
 		private int order_id;
 		private List<OrderItem> items = new List<OrderItem>();
 		private Datetime order_datetime;

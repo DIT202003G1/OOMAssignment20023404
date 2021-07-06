@@ -3,7 +3,7 @@ using System;
 using SecretGarden.OrderSystem.Database;
 
 namespace SecretGarden.OrderSystem.AppEntities{
-	class Bill{
+	public class Bill{
 		private static readonly double DISCOUNT_FACTOR = 0.95;
 		private string payment_method;
 		private bool paid;
