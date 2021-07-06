@@ -6,11 +6,12 @@ namespace SecretGarden.OrderSystem.AppEntities
 	{
 		private Item item;
 		private int quantity;
-		public OrderItem(Item item, int quantity){
+		private string remark;
+		public OrderItem(Item item, int quantity, string remark){
 			this.item = item;
 			this.quantity = quantity;
+			this.remark = remark;
 		}
-		private string remark;
 		public Item Item{
 			get=>item;
 		}
