@@ -48,7 +48,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.Customer{
 						result.IsDBNull(7) ? null : (Datetime) result.GetDateTime("premium_end_date")
 					);
 				}
-				else throw new CustomerException(CustomerException.exception_type.CUSTOMER_FOUND);
+				else throw new CustomerException(CustomerException.exception_type.CUSTOMER_NOT_FOUND);
 			}
 		}
 
