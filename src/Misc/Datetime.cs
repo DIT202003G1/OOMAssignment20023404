@@ -38,6 +38,12 @@ namespace SecretGarden.OrderSystem.Misc{
 		public string sqlFormatDate{
 			get{return $"{year}-{month}-{day}";}
 		}
+		public int Year{get=>year;}
+		public int Month{get=>month;}
+		public int Day{get=>day;}
+		public int Hour{get=>hr;}
+		public int Minute{get=>min;}
+		public int Second{get=>sec;}
 		public static implicit operator Datetime(DateTime d) => new Datetime(d.Year, d.Month, d.Day, d.Hour, d.Minute, d.Second);
 		public static Datetime operator +(Datetime target, int[] step){
 			int new_sec = target.sec + step[5];
