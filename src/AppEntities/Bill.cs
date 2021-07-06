@@ -33,7 +33,7 @@ namespace SecretGarden.OrderSystem.AppEntities{
 				foreach (OrderItem i in order.Items)
 					price += i.Item.Price;
 				if (order.Customer.is_premium()) return Math.Round(price*DISCOUNT_FACTOR,2);
-				return price;
+				return Math.Round(price, 2);
 			}
 		}
 	}
