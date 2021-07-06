@@ -47,3 +47,8 @@ bin/Debug/net5.0/Newtonsoft.Json.dll
 DBConfig
 .vscode/launch.json
 .vscode/tasks.json
+.idea/.idea.OomAssignment.dir/.idea/.gitignore
+.idea/.idea.OomAssignment.dir/.idea/encodings.xml
+.idea/.idea.OomAssignment.dir/.idea/indexLayout.xml
+.idea/.idea.OomAssignment.dir/.idea/vcs.xml
+obj/project.packagespec.json
