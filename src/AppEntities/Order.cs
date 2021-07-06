@@ -30,6 +30,8 @@ namespace SecretGarden.OrderSystem.AppEntities{
 			admin = Admin.fetch_admin(admin_record.primaryKey[0]);
 			customer = Customer.fetch_customer(admin_record.primaryKey[0]);
 
+			bill = new Bill(this);
+
 			List<OrderItemRecord> orderItemRecords = DBWrapper.Instance.order_item_table.get_records();
 			foreach (OrderItemRecord i in orderItemRecords){
 				if (i.primaryKey[0] == id){
@@ -94,6 +96,9 @@ namespace SecretGarden.OrderSystem.AppEntities{
 				DBWrapper.Instance.customer_order_table.retrieve(new int[] {order_id}).Completed = value;
 				completed = value;
 			}
+		}
+		public Bill Bill{
+			get=>bill;
 		}
 	}
 }
