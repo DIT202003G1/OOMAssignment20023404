@@ -27,7 +27,7 @@ namespace SecretGarden.OrderSystem.AppEntities{
 			return make_order(customer,admin,prepare_datetime,is_delivery,(Datetime) DateTime.Now);
 		}
 		public int make_order(Customer customer, Admin admin, Datetime prepare_datetime, bool is_delivery, Datetime order_datetime){
-			DBWrapper.Instance.customer_order_table.new_record(
+			DBWrapper.Instance.customer_order_table.append_record(
 				new CustomerOrderRecord(
 					DBWrapper.Instance.customer_order_table,
 					1,
