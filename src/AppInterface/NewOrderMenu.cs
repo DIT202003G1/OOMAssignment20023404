@@ -59,7 +59,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 						ConsoleKey r_cancel = cancel.focus();
 						if (r_cancel == ConsoleKey.DownArrow) focus_status = 3;
 						else if (r_cancel == ConsoleKey.LeftArrow) focus_status = 1;
-						else if (r_cancel == ConsoleKey.Enter) return ConsoleKey.Enter;
+						else if (r_cancel == ConsoleKey.Enter) return ConsoleKey.Escape;
 						continue;
 					case 3:
 						ConsoleKey r_search = search_box.focus();
