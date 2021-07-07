@@ -73,11 +73,24 @@ namespace SecretGarden.OrderSystem.AppEntities{
 			}
 			return false;
 		}
+		public void remove_order(){
+			OrderBook.Instance.fetch_orders().Remove(this);
+			List<OrderItemRecord> records = DBWrapper.Instance.order_item_table.get_records();
+			foreach(OrderItemRecord i in records){
+				if (i.primaryKey[0] == order_id)
+					i.remove_record();
+			}
+			DBWrapper.Instance.customer_order_table.retrieve(new int[] {order_id}).remove_record();
+		}
 		public List<OrderItem> Items{
 			get=>items;
 		}
 		public Customer Customer{
 			get=>customer;
+			set{
+				this.customer = value;
+				DBWrapper.Instance.customer_order_table.retrieve(new int[] {order_id}).customerID = value.customerId;
+			}
 		}
 		public Admin Admin{
 			get=>admin;
