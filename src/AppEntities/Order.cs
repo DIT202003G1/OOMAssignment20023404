@@ -28,7 +28,7 @@ namespace SecretGarden.OrderSystem.AppEntities{
 			delivery = record.isDelivery;
 			completed = record.Completed;
 			admin = Admin.fetch_admin(admin_record.primaryKey[0]);
-			customer = Customer.fetch_customer(admin_record.primaryKey[0]);
+			customer = Customer.fetch_customer(customer_record.primaryKey[0]);
 
 			bill = new Bill(this);
 
