@@ -33,56 +33,56 @@ namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 		public int customerID{
 			get=>rd_customer_id;
 			set{
-				table_wrapper.update_field("customer_id",value,DBWrapper.prepare_datatypes.NUMBER,$"order_id={primaryKey}");
+				table_wrapper.update_field("customer_id",value,DBWrapper.prepare_datatypes.NUMBER,$"order_id={primaryKey[0]}");
 				this.rd_customer_id = value;
 			}
 		}
 		public int adminId{
 			get=>rd_admin_id;
 			set{
-				table_wrapper.update_field("admin_id",value,DBWrapper.prepare_datatypes.NUMBER,$"order_id={primaryKey}");
+				table_wrapper.update_field("admin_id",value,DBWrapper.prepare_datatypes.NUMBER,$"order_id={primaryKey[0]}");
 				this.rd_admin_id = value;
 			}
 		}
 		public Datetime orderDatetime{
 			get=>rd_order_datetime;
 			set{
-				table_wrapper.update_field("order_datetime",value.sqlFormat,DBWrapper.prepare_datatypes.STRING,$"order_id={primaryKey}");
+				table_wrapper.update_field("order_datetime",value.sqlFormat,DBWrapper.prepare_datatypes.STRING,$"order_id={primaryKey[0]}");
 				this.rd_order_datetime = value;
 			}
 		}
 		public Datetime prepareDatetime{
 			get=>rd_prepare_datetime;
 			set{
-				table_wrapper.update_field("prepare_datetime",value.sqlFormat,DBWrapper.prepare_datatypes.STRING,$"order_id={primaryKey}");
+				table_wrapper.update_field("prepare_datetime",value.sqlFormat,DBWrapper.prepare_datatypes.STRING,$"order_id={primaryKey[0]}");
 				this.rd_prepare_datetime = value;
 			}
 		}
 		public bool isDelivery{
 			get=>rd_is_delivery;
 			set{
-				table_wrapper.update_field("is_delivery",value?1:0,DBWrapper.prepare_datatypes.NUMBER,$"order_id={primaryKey}");
+				table_wrapper.update_field("is_delivery",value?1:0,DBWrapper.prepare_datatypes.NUMBER,$"order_id={primaryKey[0]}");
 				this.rd_is_delivery = value;
 			}
 		}
 		public bool Completed{
 			get=>rd_completed;
 			set{
-				table_wrapper.update_field("completed",value?1:0,DBWrapper.prepare_datatypes.NUMBER,$"order_id={primaryKey}");
+				table_wrapper.update_field("completed",value?1:0,DBWrapper.prepare_datatypes.NUMBER,$"order_id={primaryKey[0]}");
 				this.rd_completed = value;
 			}
 		}
 		public string paymentMethod{
 			get=>this.rd_payment_method;
 			set{
-				table_wrapper.update_field("payment_method",value,DBWrapper.prepare_datatypes.STRING,$"order_id={primaryKey}");
+				table_wrapper.update_field("payment_method",value,DBWrapper.prepare_datatypes.STRING,$"order_id={primaryKey[0]}");
 				this.rd_payment_method = value;
 			}
 		}
 		public bool Paid{
 			get=>this.rd_paid;
 			set{
-				table_wrapper.update_field("paid",value?1:0,DBWrapper.prepare_datatypes.NUMBER,$"order_id={primaryKey}");
+				table_wrapper.update_field("paid",value?1:0,DBWrapper.prepare_datatypes.NUMBER,$"order_id={primaryKey[0]}");
 				this.rd_completed = value;
 			}
 		}
