@@ -3,6 +3,11 @@ using System;
 namespace SecretGarden.OrderSystem.Misc{
 	public class Datetime{
 		private int year, month, day, hr, min, sec;
+		public static bool velidate_complete_datetime(int year, int month, int day, int hr, int min, int sec){
+			if (!validate_month_day_count(year,month,day)) return false;
+			if (hr >= 24 || min >= 60 || sec >= 60) return false;
+			return true;
+		}
 		public static bool validate_month_day_count(int year, int month, int day){
 			int month_day_count = get_day_count(year,month);
 			if (day >= 1 && day <= month_day_count)
