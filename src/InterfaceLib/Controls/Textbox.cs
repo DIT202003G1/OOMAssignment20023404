@@ -115,16 +115,9 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 						case ConsoleKey.Backspace:
 							if (text.Length > 0)
 							text = text.Substring(0,Text.Length - 1);
-						break;
-						case ConsoleKey.Enter:
-							focused = false;
-							return ConsoleKey.Enter;
-						case ConsoleKey.UpArrow:
-							focused = false;
-							return ConsoleKey.UpArrow;
-						case ConsoleKey.DownArrow:
-							focused = false;
-							return ConsoleKey.DownArrow;
+							break;
+						default:
+							return c.Key;
 					}
 				}
 			}
