@@ -31,7 +31,7 @@ namespace SecretGarden.OrderSystem.AppEntities{
 			get{
 				double price = 0;
 				foreach (OrderItem i in order.Items)
-					price += i.Item.Price;
+					price += i.Item.Price * i.Quantity;
 				if (order.Customer.is_premium()) return Math.Round(price*DISCOUNT_FACTOR,2);
 				return Math.Round(price, 2);
 			}
