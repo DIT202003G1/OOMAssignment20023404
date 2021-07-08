@@ -10,8 +10,8 @@ namespace SecretGarden.OrderSystem.AppEntities{
 		private Order order;
 		public Bill(Order order){
 			this.order = order;
-			this.paid = false;
-			this.payment_method = "";
+			this.paid = DBWrapper.Instance.customer_order_table.retrieve(new int[] {order.Id}).Paid;
+			this.payment_method = DBWrapper.Instance.customer_order_table.retrieve(new int[] {order.Id}).paymentMethod;
 		}
 		public string paymentMethod{
 			get=>payment_method;
