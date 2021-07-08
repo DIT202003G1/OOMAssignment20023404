@@ -172,7 +172,10 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 				switch (c.Key){
 					case ConsoleKey.UpArrow:
 						if (index > 0) Index --;
-						else return ConsoleKey.UpArrow;
+						else {
+							focused = false;
+							return ConsoleKey.UpArrow;
+						}
 					break;
 					case ConsoleKey.DownArrow:
 						if (index < items.Length - 1) Index ++;
