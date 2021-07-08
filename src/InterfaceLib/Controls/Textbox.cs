@@ -117,6 +117,7 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 							text = text.Substring(0,Text.Length - 1);
 							break;
 						default:
+							focused = false;
 							return c.Key;
 					}
 				}
