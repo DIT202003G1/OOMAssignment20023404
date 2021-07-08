@@ -27,8 +27,8 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			y,
 			width,
 			height,
-			foreground_color,
-			background_color
+			to_dark(foreground_color),
+			to_dark(background_color)
 		){
 			this.text=text;
 			window_to_bind.register_control(this);
@@ -86,10 +86,10 @@ namespace SecretGarden.OrderSystem.InterfaceLib.Controls{
 			}
 		}
 		public void draw_focus(){
-			Rectangle a = new Rectangle(absoluteX,absoluteY,height,width,ElementBase.to_dark(backgroundColor));
+			Rectangle a = new Rectangle(absoluteX,absoluteY,height,width,ElementBase.to_light(backgroundColor));
 			a.draw();
 			Console.SetCursorPosition(absoluteX,absoluteY);
-			Console.BackgroundColor = ElementBase.to_dark(backgroundColor);
+			Console.BackgroundColor = ElementBase.to_light(backgroundColor);
 			Console.ForegroundColor = foregroundColor;
 			Console.WriteLine(displayText);
 		}
