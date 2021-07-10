@@ -1,6 +1,7 @@
 using System;
 
 using SecretGarden.OrderSystem.Misc;
+using SecretGarden.OrderSystem.AppEntities;
 using SecretGarden.OrderSystem.InterfaceLib;
 using SecretGarden.OrderSystem.InterfaceLib.Controls;
 
@@ -18,12 +19,14 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			t_pw.passwordChar = '*';
 		}
 		public override ConsoleKey focus(){
-			draw();
-			focus_status = 1;
 			//status 1 = ID
 			//status 2 = PW
 			//status 3 = BUTTON
+			focus_status = 1;
 			while (true){
+				Console.ResetColor();
+				Console.Clear();
+				draw();
 				switch (focus_status){
 					case 1:
 						ConsoleKey id_status = textboxes["ID"].focus();
@@ -54,7 +57,13 @@ namespace SecretGarden.OrderSystem.AppInterface{
 						ConsoleKey button_status = buttons["Login"].focus();
 						switch (button_status){
 							case ConsoleKey.Enter:
-								return ConsoleKey.Enter;
+								try{
+									Admin admin = Admin.login(Int32.Parse(textboxes["ID"].Text), textboxes["Password"].Text);
+									MainMenu main_menu = new MainMenu(admin);
+								}catch{
+									new LoginErrorWindow("ID or Password Incorrect").focus();
+								}
+								continue;
 							case ConsoleKey.UpArrow:
 								focus_status=2;
 								continue;
