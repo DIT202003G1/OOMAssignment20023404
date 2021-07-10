@@ -16,6 +16,17 @@ namespace SecretGarden.OrderSystem.AppEntities
 		private bool? completed;
 		private double? price_above;
 		private double? price_below;
+		public int? orderID{get=>order_id;}
+		public Datetime prepareDatetimeFrom{get=>prepare_datetime_from;}
+		public Datetime prepareDatetimeUntil{get=>prepare_datetime_until;}
+		public Datetime orderDatetimeFrom{get=>order_datetime_from;}
+		public Datetime orderDatetimeUntil{get=>order_datetime_until;}
+		public Customer Customer{get=>customer;}
+		public Admin Admin{get=>admin;}
+		public bool? isDelivery{get=>is_delivery;}
+		public bool? isCompleted{get=>completed;}
+		public double? priceAbove{get=>price_above;}
+		public double? priceBelow{get=>price_below;}
 		public static OrderFilter build(){
 			OrderFilter order_filter = new OrderFilter();
 			order_filter.reset_all();
