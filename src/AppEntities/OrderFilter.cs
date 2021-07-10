@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 using SecretGarden.OrderSystem.Misc;
@@ -33,8 +34,14 @@ namespace SecretGarden.OrderSystem.AppEntities
 			return order_filter;
 		}
 		public Order[] apply_filter(){
-			if (order_id != null) 
-				return new Order[]{OrderBook.Instance.fetch_order((int) order_id)};
+			if (order_id != null){
+				try{
+					Order o = OrderBook.Instance.fetch_order((int) order_id);
+					return new Order[]{OrderBook.Instance.fetch_order((int) order_id)};
+				} catch (Exception e){
+					return new Order[]{};
+				}
+			}
 
 			List<Order> orders = new List<Order>(OrderBook.Instance.fetch_orders());
 			
