@@ -36,7 +36,7 @@ namespace SecretGarden.OrderSystem.AppEntities
 			if (order_id != null) 
 				return new Order[]{OrderBook.Instance.fetch_order((int) order_id)};
 
-			List<Order> orders = OrderBook.Instance.fetch_orders();
+			List<Order> orders = new List<Order>(OrderBook.Instance.fetch_orders());
 			
 			List<Order> to_be_filtered = new List<Order>();
 
