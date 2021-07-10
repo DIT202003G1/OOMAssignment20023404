@@ -22,9 +22,6 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			// 4 - list
 			Title = "Select Customer";
 			this.focus_status = 1;
-			if (!new_options){
-				cancel.X = 2;
-			}
 			while (true){
 				Console.ResetColor();
 				Console.Clear();
