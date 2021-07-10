@@ -22,7 +22,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			// 4 - list
 			Title = "Select Customer";
 			this.focus_status = 1;
-			if (new_options){
+			if (!new_options){
 				cancel.X = 2;
 			}
 			while (true){
@@ -31,7 +31,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 				draw();
 				switch(focus_status){
 					case 1:
-						if (new_options){
+						if (!new_options){
 							focus_status = 2;
 							continue;
 						}
