@@ -8,12 +8,12 @@ using SecretGarden.OrderSystem.InterfaceLib.Controls;
 
 namespace SecretGarden.OrderSystem.AppInterface{
 	class NewOrderMenu : Window{
-		private Label search_label; 
-		private Label selection_label; 
-		private Button new_customer;
-		private Button cancel;
-		private Textbox search_box;
-		private MenuList customers_list;
+		protected Label search_label; 
+		protected Label selection_label; 
+		protected Button new_customer;
+		protected Button cancel;
+		protected Textbox search_box;
+		protected MenuList customers_list;
 		public NewOrderMenu():base("New Order", 2, 1, 34, 13, ConsoleColor.Black){
 			this.selection_label = new Label(this, "selection", 2, 1, 17, 1, ConsoleColor.White, "Choose a customer");
 			this.new_customer = new Button(this, "newcutomer", 22, 1, ConsoleColor.Black, ConsoleColor.White, "New");
@@ -24,7 +24,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			this.search_box.allowedChars = "1234567890";
 			this.search_box.maxLength = 6;
 		}
-		private string[] listItems{
+		protected string[] listItems{
 			get{
 				List<CustomerRecord> orders = DBWrapper.Instance.customer_table.get_records();
 				List<string> items = new List<string>();
