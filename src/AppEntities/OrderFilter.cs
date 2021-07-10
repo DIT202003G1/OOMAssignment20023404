@@ -38,7 +38,7 @@ namespace SecretGarden.OrderSystem.AppEntities
 				try{
 					Order o = OrderBook.Instance.fetch_order((int) order_id);
 					return new Order[]{OrderBook.Instance.fetch_order((int) order_id)};
-				} catch (Exception e){
+				} catch {
 					return new Order[]{};
 				}
 			}

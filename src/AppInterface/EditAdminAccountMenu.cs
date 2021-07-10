@@ -61,7 +61,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			try{
 				Admin.login(admin.AdminId, old_password_textbox.Text);
 				return true;
-			} catch (Exception e){
+			} catch{
 				return false;
 			}
 		}
