@@ -60,6 +60,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 								try{
 									Admin admin = Admin.login(Int32.Parse(textboxes["ID"].Text), textboxes["Password"].Text);
 									MainMenu main_menu = new MainMenu(admin);
+									main_menu.focus();
 								}catch{
 									new LoginErrorWindow("ID or Password Incorrect").focus();
 								}
