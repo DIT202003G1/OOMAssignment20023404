@@ -49,6 +49,9 @@ namespace SecretGarden.OrderSystem.AppEntities
 			{
 				admin_password_salt = PasswordUtils.generate_salt();
 				admin_password_hash = PasswordUtils.hash_password(admin_password_salt, value);
+				AdminAccountRecord record = DBWrapper.Instance.admin_account_table.retrieve(new[] {admin_id});
+				record.passwordHash = admin_password_hash;
+				record.passwordSalt = admin_password_salt;
 			}
 		}
 
@@ -82,6 +85,8 @@ namespace SecretGarden.OrderSystem.AppEntities
 
 		public static Admin login(int id, string password)
 		{
+			Console.SetCursorPosition(0,0);
+			Console.WriteLine(id);
 			var record = DBWrapper.Instance.admin_account_table.retrieve(new[] {id});
 			if (PasswordUtils.validate_password(record.passwordSalt, password, record.passwordHash))
 				return new Admin(id);
