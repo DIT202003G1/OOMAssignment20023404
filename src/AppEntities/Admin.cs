@@ -65,11 +65,11 @@ namespace SecretGarden.OrderSystem.AppEntities
 		public static Admin[] fetch_admins()
 		{
 			var adminRecords = DBWrapper.Instance.admin_account_table.get_records();
-
+			
 			var admins = new List<Admin>();
 			foreach (var record in adminRecords)
 			{
-				admins.Append(new Admin(record.primaryKey[0]));
+				admins.Add(new Admin(record.primaryKey[0]));
 			}
 
 			return admins.ToArray();
