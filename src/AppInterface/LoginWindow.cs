@@ -61,8 +61,22 @@ namespace SecretGarden.OrderSystem.AppInterface{
 									Admin admin = Admin.login(Int32.Parse(textboxes["ID"].Text), textboxes["Password"].Text);
 									MainMenu main_menu = new MainMenu(admin);
 									main_menu.focus();
-								}catch{
+									textboxes["Password"].Text="";
+									focus_status = 2;
+									continue;
+								}catch (Exceptions.AdminAccountException){
 									new LoginErrorWindow("ID or Password Incorrect").focus();
+								}catch (Exception e){
+									Console.ResetColor();Console.Clear();
+									MessageBox err = new MessageBox(new string[]{"The following exception has been raised","",StringUtils.hide_by_max_width(e.ToString().Split("\n")[0], 45),"","Please report this to the developers","Press enter to see tracebacks"}, "Fatel Error");
+									err.focus();
+									Console.ResetColor();Console.Clear();
+									Console.SetCursorPosition(0,0);
+									Console.WriteLine(e.ToString());
+									Console.WriteLine(e.StackTrace);
+									Console.ReadKey();
+									MessageBox post_err = new MessageBox(new string[]{"Press enter to proceed to the login page"}, "Fatel Error");
+									post_err.focus();
 								}
 								continue;
 							case ConsoleKey.UpArrow:
