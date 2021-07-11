@@ -104,7 +104,7 @@ namespace SecretGarden.OrderSystem.Database.Tables.CustomerOrder{
 		}
 		public void remove_record(){
 			DBWrapper.Instance.execute_only(
-				$"DELETE FROM {table_wrapper.table_name} WHERE order_id = {this.primaryKey}"
+				$"DELETE FROM {table_wrapper.table_name} WHERE order_id = {this.primaryKey[0]}"
 			);
 		}
 
