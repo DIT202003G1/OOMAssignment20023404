@@ -21,7 +21,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			this.cancel = new Button(this, "cancel", 26, 1, ConsoleColor.Black, ConsoleColor.White, "Cancel");
 			this.search_label = new Label(this, "search", 2, 3, 17, 1, ConsoleColor.White, "Search by ID:");
 			this.search_box = new Textbox(this, "search", 18, 3, 14, 1, ConsoleColor.Black, ConsoleColor.White, "");
-			this.orders = new MenuList(this, "orders", 2, 5, 30, 6, ConsoleColor.Black, ConsoleColor.White, listItems);
+			this.orders = new MenuList(this, "orders", 2, 5, 30, 6, ConsoleColor.White, ConsoleColor.Black, listItems);
 			this.search_box.allowedChars = "1234567890";
 			this.search_box.maxLength = 6;
 		}

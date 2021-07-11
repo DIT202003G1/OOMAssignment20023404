@@ -74,7 +74,7 @@ namespace SecretGarden.OrderSystem.AppInterface
 			add_item_button = new Button(this, "add_item_button", 27, 9, ConsoleColor.Black, ConsoleColor.White, " Add Item ");
 			save_button = new Button(this, "save_button", 38, 9, ConsoleColor.Black, ConsoleColor.White, " Save ");
 			select_an_item_to_edit_label = new Label(this, "select_an_item_to_edit_label", 2, 11, 24, 1, ConsoleColor.White, "(Select an item to edit)");
-			items_menu_list = new MenuList(this, "items_menu", 2, 12, 41, 6, ConsoleColor.Black, ConsoleColor.White, listItemInString);
+			items_menu_list = new MenuList(this, "items_menu", 2, 12, 41, 6, ConsoleColor.White, ConsoleColor.Black, listItemInString);
 
 			completed_data_label = new Label(this, "completed_data_label", 13, 2, 3, 1, ConsoleColor.White, "");
 			type_data_label = new Label(this, "type_data_label", 8, 3, 8, 1, ConsoleColor.White, "");

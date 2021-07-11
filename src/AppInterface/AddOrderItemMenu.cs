@@ -13,7 +13,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 		public AddOrderItemMenu(Item[] item_mask):base("Edit Item", 2, 1, 45, 10, ConsoleColor.Black){
 			this.item_mask = item_mask;
 			cancel_button = new Button(this, "cancel_button", 37, 1, ConsoleColor.Black, ConsoleColor.White, "Cancel");
-			item_list = new MenuList(this, "item_list", 2, 3, 41, 5, ConsoleColor.Black, ConsoleColor.White, itemListNames);
+			item_list = new MenuList(this, "item_list", 2, 3, 41, 5, ConsoleColor.White, ConsoleColor.Black, itemListNames);
 		}
 		private string[] itemListNames{
 			get{

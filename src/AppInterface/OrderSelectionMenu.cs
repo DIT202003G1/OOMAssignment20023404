@@ -16,7 +16,7 @@ namespace SecretGarden.OrderSystem.AppInterface{
 			
 			back_button = new Button(this, "back_button", 2, 1, ConsoleColor.Black, ConsoleColor.White,	" Back ");
 			filter_button = new Button(this, "filter_button", 29, 1, ConsoleColor.Black, ConsoleColor.White, "Filter Options");
-			order_list = new MenuList(this, "order_list", 2, 3, 41, 5, ConsoleColor.Black, ConsoleColor.White, listItems);
+			order_list = new MenuList(this, "order_list", 2, 3, 41, 5, ConsoleColor.White, ConsoleColor.Black, listItems);
 		}
 		protected override void on_draw(){
 			order_list.Items = listItems;
