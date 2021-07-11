@@ -9,7 +9,7 @@ using SecretGarden.OrderSystem.InterfaceLib.Controls;
 namespace SecretGarden.OrderSystem.AppInterface{
 	class SelectCustomerMenu : NewOrderMenu{
 		private bool new_options;
-		public SelectCustomerMenu(bool new_option = true):base(){
+		public SelectCustomerMenu(bool new_option = true):base(null){
 			this.new_options = new_option;
 			if (!new_option){
 				this.buttons.Remove("newcutomer");

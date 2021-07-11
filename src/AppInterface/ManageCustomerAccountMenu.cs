@@ -156,6 +156,11 @@ namespace SecretGarden.OrderSystem.AppInterface{
 					case 9:
 						ConsoleKey r_delete = this.buttons["Delete"].focus();
 						if (r_delete == ConsoleKey.Enter){
+							OrderFilter order_filter = OrderFilter.build().ordered_by(customer);
+							Order[] orders = order_filter.apply_filter();
+							foreach (Order i in orders){
+								OrderBook.Instance.fetch_order(i.Id).remove_order();
+							}
 							DBWrapper.Instance.customer_table.retrieve(new int[] {customer.customerId}).remove_record();
 							return ConsoleKey.Enter;
 						}

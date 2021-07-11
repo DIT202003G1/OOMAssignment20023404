@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 
+using SecretGarden.OrderSystem.Misc;
+using SecretGarden.OrderSystem.AppEntities;
 using SecretGarden.OrderSystem.Database;
 using SecretGarden.OrderSystem.Database.Tables.Customer;
 using SecretGarden.OrderSystem.InterfaceLib;
@@ -8,13 +10,15 @@ using SecretGarden.OrderSystem.InterfaceLib.Controls;
 
 namespace SecretGarden.OrderSystem.AppInterface{
 	class NewOrderMenu : Window{
+		Admin admin;
 		protected Label search_label; 
 		protected Label selection_label; 
 		protected Button new_customer;
 		protected Button cancel;
 		protected Textbox search_box;
 		protected MenuList customers_list;
-		public NewOrderMenu():base("New Order", 2, 1, 34, 13, ConsoleColor.Black){
+		public NewOrderMenu(Admin admin):base("New Order", 2, 1, 34, 13, ConsoleColor.Black){
+			this.admin = admin;
 			this.selection_label = new Label(this, "selection", 2, 1, 17, 1, ConsoleColor.White, "Choose a customer");
 			this.new_customer = new Button(this, "newcutomer", 22, 1, ConsoleColor.Black, ConsoleColor.White, "New");
 			this.cancel = new Button(this, "cancel", 26, 1, ConsoleColor.Black, ConsoleColor.White, "Cancel");
@@ -86,7 +90,13 @@ namespace SecretGarden.OrderSystem.AppInterface{
 					case 4:
 						ConsoleKey r_list = customers_list.focus();
 						if (r_list == ConsoleKey.UpArrow) focus_status = 3;
-						else if (r_list == ConsoleKey.Enter) return ConsoleKey.Enter;
+						else if (r_list == ConsoleKey.Enter){
+							Customer customer = Customer.fetch_customers()[customers_list.Index];
+							int order_id = OrderBook.Instance.make_order(customer, admin, (Datetime) DateTime.Now, true);
+							Order order = OrderBook.Instance.fetch_order(order_id);
+							EditOrderMenu eom = new EditOrderMenu(order);
+							eom.focus();
+						};
 						continue;
 				}
 			}
