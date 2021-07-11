@@ -22,10 +22,35 @@ namespace SecretGarden.OrderSystem.AppInterface{
 				Console.Clear();
 				draw();
 				ConsoleKey status = menu_lists["Menu"].focus();
-				if (status == ConsoleKey.Enter) break;
+				if (status == ConsoleKey.Enter) {
+					int option = menu_lists["Menu"].Index;
+					switch (option){
+						case 0:
+							NewAdminMenu nam = new NewAdminMenu();
+							nam.focus();
+							continue;
+						case 1:
+							DeleteAdminMenu dam = new DeleteAdminMenu();
+							dam.focus();
+							continue;
+						case 2:
+							SelectAdminMenu sam = new SelectAdminMenu();
+							if (sam.focus() == ConsoleKey.Enter){
+								EditAdminAccountMenu eaam = new EditAdminAccountMenu(sam.selectedAdmin);
+								eaam.focus();
+							}
+							continue;
+						case 3:
+							DatabaseSettingsMenu dsm = new DatabaseSettingsMenu();
+							dsm.focus();
+							MessageBox message_box = new MessageBox(new string[] {"Restart the application to reload the settings."}, "Database Settings");
+							message_box.focus();
+							continue;
+						case 4:
+							return ConsoleKey.Enter;
+					}
+				}
 			}
-			// return menu_lists["Menu"].Index;
-			return ConsoleKey.Enter;
 		}
 	}
 }
