@@ -1,3 +1,6 @@
+A Computer Based Commerce Order and Management System (DIT-Object Oriented Modeling Assignment)
+---
+
 This is an assignment:
  - Name: Xuanao Zhao
  - Student ID: 20023404
@@ -28,3 +31,6 @@ Build or Run is being peformed using the dotnet CLI tool.
 Use `dotnet run` command in the root directory to run the code (where the OomAssignment.csproj file is located)  
 Use `dotnet build` to build an executable binary for your operating system (where the OomAssignment.csproj file is located)  
 The output of the built file will be located under the /bin/Debug/net5.0 directory
+
+#### Project Showcase
+[![Youtube link to project showcase](https://img.youtube.com/vi/GVuRPkMKcFQ/0.jpg)](https://www.youtube.com/watch?v=GVuRPkMKcFQ)
